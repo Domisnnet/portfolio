@@ -1,0 +1,30 @@
+/* =================
+  Layout base
+================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.home-text {
+  max-width: 600px;
+}
+
+/* =================
+  Responsivo
+================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}
