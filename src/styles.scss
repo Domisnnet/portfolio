@@ -2,9 +2,124 @@
     Estilos globais
 ===================== */
 @use './styles/buttons';
-@use './styles/cta';
+/*@use './styles/cta';
 @use './styles/hero';
 @use './styles/reset';
 @use './styles/stack';
 @use './styles/themes';
 @use './styles/variables';
+*/
+/* ================================
+  Importando fontes e variáveis
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap');
+
+:root {
+  --font-main: 'Poppins', sans-serif;
+  --font-code: 'Fira Code', monospace;
+  --primary-color: #4f46e5;
+  --secondary-color: #4338ca;
+  --accent-color: #06b6d4;
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+}
+
+/* =================
+  Reset básico
+================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* =================
+  Themes
+================= */
+:root { /* Dark */
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --text-primary: #fff;
+  --text-secondary: #b0b0b0;
+  --accent: #00bfa6;
+  --accent-alt: #ff4081;
+}
+
+:root.light { /* Light */
+  --bg: #fafafa;
+  --surface: #fff;
+  --text-primary: #212121;
+  --text-secondary: #616161;
+  --accent: #00bfa6;
+  --accent-alt: #ff4081;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: sans-serif;
+  margin: 0;
+}
+
+/* =================
+  Hero Section
+================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+}
+
+.hero .avatar {
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.hero .avatar:hover {
+  transform: scale(1.05);
+}
+
+/* =================
+  CTA container
+================= */
+.cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* =================
+  Stack pills
+================= */
+.stack-pill {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  margin: 0.3rem;
+  border-radius: 20px;
+  background: var(--secondary-color);
+  color: #fff;
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.stack-pill:hover {
+  background: var(--accent-color);
+}

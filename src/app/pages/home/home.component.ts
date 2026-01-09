@@ -6,7 +6,7 @@ import { StackPillComponent } from '../../components/stack-pill/stack-pill.compo
   standalone: true, 
   imports: [StackPillComponent], 
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {

@@ -8,7 +8,7 @@ import { ThemeToggleComponent } from './core/theme-toggle.component'; // Re-addi
   // Re-importing ThemeToggleComponent
   imports: [CommonModule, RouterOutlet, RouterModule, ThemeToggleComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}

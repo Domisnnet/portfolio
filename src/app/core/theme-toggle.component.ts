@@ -7,7 +7,7 @@ import { ThemeService } from './theme.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './theme-toggle.html',
-  styleUrl: './theme-toggle.css',
+  styleUrl: './theme-toggle.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeToggleComponent {
