@@ -1,9 +1,5 @@
 <section class="hero">
-  <img src="/assets/images/domisdev.png"
-       alt="Avatar de DomisDev"
-       width="150"
-       height="150"
-       class="avatar">
+  <img src="/assets/images/domisdev.png"alt="Avatar de DomisDev"width="150"height="150"class="avatar">
   <div>
     <h2>Olá, eu sou o DomisDev — Dev front end</h2>
     <p>Estudando para ser um futuro Full Stack e explorando tecnologias modernas para criar experiências digitais únicas.</p>
@@ -19,37 +15,41 @@
 </section>
 <section class="stack">
   <h2>Minha Stack Dev</h2>
-  <p class="tagline">Codificando ideias. Construindo o Futuro!</p>
+  <p class="tagline">Codificando ideias. Construindo o futuro!</p>
   <p>Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.</p>
-
   <div class="stack-block">
     <h3>Front-end</h3>
     <div class="pill-grid">
-      <app-stack-pill *ngFor="let tech of stack.frontend" [name]="tech"></app-stack-pill>
+      <app-stack-pill *ngFor="let tech of stack.frontend" [name]="tech" [icon]="getIcon(tech)">
+      </app-stack-pill>
     </div>
   </div>
   <div class="stack-block">
     <h3>Back-end</h3>
     <div class="pill-grid">
-      <app-stack-pill *ngFor="let tech of stack.backend" [name]="tech"></app-stack-pill>
+      <app-stack-pill *ngFor="let tech of stack.backend" [name]="tech" [icon]="getIcon(tech)">
+      </app-stack-pill>
     </div>
   </div>
   <div class="stack-block">
     <h3>Bancos de Dados</h3>
     <div class="pill-grid">
-      <app-stack-pill *ngFor="let tech of stack.databases" [name]="tech"></app-stack-pill>
+      <app-stack-pill *ngFor="let tech of stack.databases" [name]="tech" [icon]="getIcon(tech)">
+      </app-stack-pill>
     </div>
   </div>
   <div class="stack-block">
     <h3>Ferramentas & DevOps</h3>
     <div class="pill-grid">
-      <app-stack-pill *ngFor="let tech of stack.devops" [name]="tech"></app-stack-pill>
+      <app-stack-pill *ngFor="let tech of stack.devops" [name]="tech" [icon]="getIcon(tech)">
+      </app-stack-pill>
     </div>
   </div>
   <div class="stack-block">
     <h3>CMS & Arquitetura</h3>
     <div class="pill-grid">
-      <app-stack-pill *ngFor="let tech of stack.cms" [name]="tech"></app-stack-pill>
+      <app-stack-pill *ngFor="let tech of stack.cms" [name]="tech" [icon]="getIcon(tech)">
+      </app-stack-pill>
     </div>
   </div>
 </section>

@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { StackPillComponent } from '../components/stack-pill/stack-pill.component';
+import { CommonModule } from '@angular/common';
+import { StackPillComponent } from '../../components/stack-pill/stack-pill.component'; // ajuste o caminho conforme sua estrutura
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, NgOptimizedImage, StackPillComponent],
+  standalone: true, 
+  imports: [CommonModule, StackPillComponent], 
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +32,6 @@ export class HomeComponent {
     ],
   };
 
-  // 🔥 Método para mapear ícones
   getIcon(tech: string): string {
     const map: Record<string, string> = {
       'HTML5': 'assets/icons/html5.svg',
@@ -54,7 +54,6 @@ export class HomeComponent {
       'SPA moderna': 'assets/icons/spa.svg',
       'API serverless (Node.js + Firebase Functions)': 'assets/icons/firebase.svg',
     };
-
     return map[tech] || '';
   }
 }
