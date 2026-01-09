@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { StackPillComponent } from '../components/stack-pill/stack-pill.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, StackPillComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,4 +30,31 @@ export class HomeComponent {
       'API serverless (Node.js + Firebase Functions)',
     ],
   };
+
+  // 🔥 Método para mapear ícones
+  getIcon(tech: string): string {
+    const map: Record<string, string> = {
+      'HTML5': 'assets/icons/html5.svg',
+      'CSS3': 'assets/icons/css3.svg',
+      'Sass': 'assets/icons/sass.svg',
+      'Bootstrap': 'assets/icons/bootstrap.svg',
+      'JavaScript': 'assets/icons/javascript.svg',
+      'Angular': 'assets/icons/angular.svg',
+      'React': 'assets/icons/react.svg',
+      'Vue.js': 'assets/icons/vue.svg',
+      'Node.js': 'assets/icons/nodejs.svg',
+      'Express': 'assets/icons/express.svg',
+      'MongoDB': 'assets/icons/mongodb.svg',
+      'MySQL': 'assets/icons/mysql.svg',
+      'GitHub': 'assets/icons/github.svg',
+      'VSCode': 'assets/icons/vscode.svg',
+      'Vercel': 'assets/icons/vercel.svg',
+      'NPM': 'assets/icons/npm.svg',
+      'WordPress': 'assets/icons/wordpress.svg',
+      'SPA moderna': 'assets/icons/spa.svg',
+      'API serverless (Node.js + Firebase Functions)': 'assets/icons/firebase.svg',
+    };
+
+    return map[tech] || '';
+  }
 }
