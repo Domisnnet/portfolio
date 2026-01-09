@@ -14,19 +14,3 @@
     font-size: 0.9rem;
     transition: background 0.3s ease;
 }
-
-
-.stack-pill:hover {
-    background: var(--accent-color);
-}
-
-.pill-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.stack-block h3 {
-    margin: 1rem 0 0.5rem;
-}
