@@ -1,5 +1,5 @@
 /* ================================
-  Importando fontes e variáveis
+   1. Imports & Variáveis globais
 ================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap');
 
@@ -13,9 +13,9 @@
   --text-color: #f9fafb;     
 }
 
-/* =================
-  Reset básico
-================= */
+/* ================================
+   2. Reset & Base
+================================= */
 * {
   margin: 0;
   padding: 0;
@@ -29,9 +29,9 @@ body {
   line-height: 1.6;
 }
 
-/* =================
-  Themes
-================= */
+/* ================================
+   3. Themes (Dark & Light)
+================================= */
 :root { /* Dark */
   --bg: #121212;
   --surface: #1e1e1e;
@@ -53,13 +53,11 @@ body {
 body {
   background-color: var(--bg);
   color: var(--text-primary);
-  font-family: sans-serif;
-  margin: 0;
 }
 
-/* =================
-  Hero Section
-================= */
+/* ================================
+   4. Layout: Hero Section
+================================= */
 .hero {
   display: flex;
   align-items: center;
@@ -78,9 +76,9 @@ body {
   transform: scale(1.05);
 }
 
-/* =================
-  Botões globais
-================= */
+/* ================================
+   5. Componentes: Botões
+================================= */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -109,9 +107,9 @@ body {
   color: #fff;
 }
 
-/* =================
-  CTA container
-================= */
+/* ================================
+   6. Componentes: CTA container
+================================= */
 .cta {
   display: flex;
   gap: 1rem;
@@ -125,9 +123,9 @@ body {
   }
 }
 
-/* =================
-  Stack pills
-================= */
+/* ================================
+   7. Componentes: Stack Pills
+================================= */
 .stack-pill {
   display: inline-block;
   padding: 0.4rem 0.8rem;
@@ -142,4 +140,15 @@ body {
 
 .stack-pill:hover {
   background: var(--accent-color);
+}
+
+.pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stack-block h3 {
+  margin: 1rem 0 0.5rem;
 }
