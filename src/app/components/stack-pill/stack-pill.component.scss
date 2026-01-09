@@ -1,5 +1,15 @@
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #f5f5f5;
+    font-size: 0.9rem;
+}
+
 .pill-icon {
     width: 18px;
     height: 18px;
-    margin-right: 0.4rem;
 }

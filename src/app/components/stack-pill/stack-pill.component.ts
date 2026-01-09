@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule], 
   templateUrl: './stack-pill.component.html',
-  styleUrls: ['./stack-pill.component.scss'] 
+  styleUrls: ['./stack-pill.component.scss']
 })
 export class StackPillComponent {
   @Input() name!: string;
