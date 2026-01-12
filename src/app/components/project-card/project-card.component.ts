@@ -26,4 +26,14 @@ export class ProjectCardComponent {
       window.open(link, '_blank');
     }
   }
+
+  getIconName(tag: string): string {
+    const name = tag.toLowerCase().trim();
+    if (name === 'html') return 'html5';
+    if (name === 'css') return 'css3';
+    if (name === 'tailwind css') return 'tailwind.css';
+    if (name === 'node.js') return 'node-js';
+    if (name === 'vue.js') return 'vue-js';
+    return name.replace(/\s+/g, '-').replace('.', '-');
+  }
 }
