@@ -1,34 +1,57 @@
 /* =============
     Estilização
    ============= */
-.pill {
-    display: inline-flex; 
-    align-items: center; 
-    gap: 0.5rem; 
-    padding: 0.5rem 1rem; 
-    border-radius: 25px; font-size: 0.9rem; 
-    font-weight: 500; 
-    margin: 0.25rem; 
-    color: #fff; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15); 
-    transition: all 0.2s ease-in-out;
-}
-
-.pill:hover {
-    background-color: #2b2b2b;
-    transform: translateY(-2px); 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+.stack-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    animation: revealPill 0.5s ease forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
 }
 
 .pill-icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    background-color: currentColor; 
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
 }
 
+/* =================
+    Cores do Root
+================= */
+&.frontend { color: var(--pill-front-text); background: var(--pill-front-bg); border-color: var(--pill-front-border); }
+&.backend  { color: var(--pill-back-text); background: var(--pill-back-bg); border-color: var(--pill-back-border); }
+&.database { color: var(--pill-db-text); background: var(--pill-db-bg); border-color: var(--pill-db-border); }
+&.devops   { color: var(--pill-devops-text); background: var(--pill-devops-bg); border-color: var(--pill-devops-border); }
+&.cms  { color: var(--pill-cms-text); background: var(--pill-cms-bg); border-color: var(--pill-cms-border); }
+
+&:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.2);
+}
+
+@keyframes revealPill {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
 
 /* =================
     Categorias
 ================= */
+/*
 .frontend .pill { 
     background: #1976d2; // Azul Material (Angular/React vibe) 
 } 
@@ -55,3 +78,4 @@
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
 }
+*/
