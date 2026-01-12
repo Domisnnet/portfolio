@@ -14,30 +14,49 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     animation: revealPill 0.5s ease forwards;
-    animation-delay: calc(var(--delay) * 0.1s);
-}    
+    animation-delay: calc(var(--delay, 0) * 0.1s);
+    cursor: default;
 
 /* =================
     Cores do Root
-================= */
-&.frontend { color: var(--pill-front-text); background: var(--pill-front-bg); border-color: var(--pill-front-border); }
-&.backend  { color: var(--pill-back-text); background: var(--pill-back-bg); border-color: var(--pill-back-border); }
-&.database { color: var(--pill-db-text); background: var(--pill-db-bg); border-color: var(--pill-db-border); }
-&.devops   { color: var(--pill-devops-text); background: var(--pill-devops-bg); border-color: var(--pill-devops-border); }
-&.cms { color: var(--pill-cms-text); background: var(--pill-cms-bg); border-color: var(--pill-cms-border);}
+================= */    
+    &.frontend { 
+        color: var(--pill-front-text); 
+        background: var(--pill-front-bg); 
+        border-color: var(--pill-front-border); 
+    }
+    &.backend { 
+        color: var(--pill-back-text); 
+        background: var(--pill-back-bg); 
+        border-color: var(--pill-back-border); 
+    }
+    &.database { 
+        color: var(--pill-db-text); 
+        background: var(--pill-db-bg); 
+        border-color: var(--pill-db-border); 
+    }
+    &.devops { 
+        color: var(--pill-devops-text); 
+        background: var(--pill-devops-bg); 
+        border-color: var(--pill-devops-border); 
+    }
+    &.cms { 
+        color: var(--pill-cms-text); 
+        background: var(--pill-cms-bg); 
+        border-color: var(--pill-cms-border); 
+    }
 
-&:hover { 
-    transform: translateY(-3px) 
-    scale(1.05); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-    filter: brightness(1.2);
+    &:hover { 
+        transform: translateY(-3px) scale(1.05); 
+        box-shadow: 0 8px 20px -5px currentColor; 
+        filter: brightness(1.1);
+    }
 }
 
-
 .pill-icon {
-    width: 20px;
-    height: 20px;
-    background-color: currentColor;
+    width: 18px;
+    height: 18px;
+    background-color: currentColor; 
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -46,13 +65,6 @@
 }
 
 @keyframes revealPill {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
