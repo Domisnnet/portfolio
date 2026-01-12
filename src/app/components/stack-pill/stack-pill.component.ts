@@ -1,15 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-stack-pill',
-  standalone: true,
-  imports: [CommonModule], 
+  imports: [CommonModule],
   templateUrl: './stack-pill.component.html',
-  styleUrls: ['./stack-pill.component.scss']
+  styleUrls: ['./stack-pill.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StackPillComponent {
-  @Input() name: string = '';
-  @Input() iconPath: string = ''; 
-  @Input() category: 'frontend' | 'backend' = 'frontend';
+  name = input<string>('');
+  iconPath = input<string>('');
+  category = input<'frontend' | 'backend' | 'database' | 'devops' | 'cms'>('frontend');
 }

@@ -23,56 +23,66 @@
       <div class="stack-block frontend">
         <h3>Front-end</h3>
         <div class="pill-grid">
-          <app-stack-pill 
-            *ngFor="let tech of stack.frontend; let i = index" 
-            [name]="tech" 
-            [icon]="getIcon(tech)"
-            [style.--delay]="i" type="frontend">
-          </app-stack-pill>
+          @for (tech of stack().frontend; track tech; let i = $index) {
+            <app-stack-pill 
+              [name]="tech" 
+              [iconPath]="getIcon(tech)"
+              [style.--delay]="i" 
+              category="frontend">
+            </app-stack-pill>
+          }
         </div>
       </div>
       <div class="stack-block backend">
         <h3>Back-end</h3>
         <div class="pill-grid">
-          <app-stack-pill 
-            *ngFor="let tech of stack.backend; let i = index" 
-            [name]="tech" 
-            [icon]="getIcon(tech)"
-            [style.--delay]="i" type="backend">
-          </app-stack-pill>
+          @for (tech of stack().backend; track tech; let i = $index) {
+            <app-stack-pill 
+              [name]="tech" 
+              [iconPath]="getIcon(tech)"
+              [style.--delay]="i" 
+              category="backend">
+            </app-stack-pill>
+          }
         </div>
       </div>
       <div class="stack-block databases">
         <h3>Bancos de Dados</h3>
         <div class="pill-grid">
-          <app-stack-pill 
-            *ngFor="let tech of stack.databases; let i = index" 
-            [name]="tech" 
-            [icon]="getIcon(tech)"
-            [style.--delay]="i" type="database">
-          </app-stack-pill>
+          @for (tech of stack().databases; track tech; let i = $index) {
+            <app-stack-pill 
+              [name]="tech" 
+              [iconPath]="getIcon(tech)"
+              [style.--delay]="i" 
+              category="database">
+            </app-stack-pill>
+          }
         </div>
       </div>
       <div class="stack-block devops">
         <h3>Ferramentas & DevOps</h3>
         <div class="pill-grid">
-          <app-stack-pill 
-            *ngFor="let tech of stack.devops; let i = index" 
-            [name]="tech" 
-            [icon]="getIcon(tech)"
-            [style.--delay]="i" type="devops">
-          </app-stack-pill>
+          @for (tech of stack().devops; track tech; let i = $index) {
+            <app-stack-pill 
+              [name]="tech" 
+              [iconPath]="getIcon(tech)"
+              [style.--delay]="i" 
+              category="devops">
+            </app-stack-pill>
+          }
         </div>
       </div>
       <div class="stack-block cms">
         <h3>CMS & Arquitetura</h3>
         <div class="pill-grid">
-          <app-stack-pill 
-            *ngFor="let tech of stack.cms; let i = index" 
-            [name]="tech" 
-            [icon]="getIcon(tech)"
-            [style.--delay]="i" type="cms">
-          </app-stack-pill>
+          @for (tech of stack().cms; track tech; let i = $index) {
+            <app-stack-pill 
+              [name]="tech" 
+              [iconPath]="getIcon(tech)"
+              [style.--delay]="i" 
+              category="cms">
+            </app-stack-pill>
+          }
         </div>
       </div>
     </div>
