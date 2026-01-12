@@ -13,7 +13,6 @@
     </div>
   </div>
 </section>
-
 <section class="stack-section">
   <div class="container">
     <div>
@@ -23,40 +22,66 @@
       <div class="stack-block frontend">
         <h3>Front-end</h3>
         <div class="pill-grid">
-          @for (tech of stack().frontend; track tech) {
-          <app-stack-pill [name]="tech" [iconPath]="getIcon(tech)"></app-stack-pill>
+          @for (tech of stack().frontend; track tech; let i = $index) {
+          <app-stack-pill 
+            [name]="tech" 
+            [iconPath]="getIcon(tech)" 
+            category="frontend"
+            [style.--delay]="i">
+          </app-stack-pill>
           }
         </div>
       </div>
       <div class="stack-block backend">
         <h3>Back-end</h3>
         <div class="pill-grid">
-          @for (tech of stack().backend; track tech) {
-          <app-stack-pill [name]="tech" [iconPath]="getIcon(tech)"></app-stack-pill>
+          @for (tech of stack().backend; track tech; let i = $index) {
+          <app-stack-pill 
+            [name]="tech" 
+            [iconPath]="getIcon(tech)" 
+            category="backend"
+            [style.--delay]="i">
+          </app-stack-pill>
           }
         </div>
       </div>
+
       <div class="stack-block databases">
         <h3>Bancos de Dados</h3>
         <div class="pill-grid">
-          @for (tech of stack().databases; track tech) {
-          <app-stack-pill [name]="tech" [iconPath]="getIcon(tech)"></app-stack-pill>
+          @for (tech of stack().databases; track tech; let i = $index) {
+          <app-stack-pill 
+            [name]="tech" 
+            [iconPath]="getIcon(tech)" 
+            category="database"
+            [style.--delay]="i">
+          </app-stack-pill>
           }
         </div>
       </div>
       <div class="stack-block devops">
         <h3>DevOps & Ferramentas</h3>
         <div class="pill-grid">
-          @for (tech of stack().devops; track tech) {
-          <app-stack-pill [name]="tech" [iconPath]="getIcon(tech)"></app-stack-pill>
+          @for (tech of stack().devops; track tech; let i = $index) {
+          <app-stack-pill 
+            [name]="tech" 
+            [iconPath]="getIcon(tech)" 
+            category="devops"
+            [style.--delay]="i">
+          </app-stack-pill>
           }
         </div>
       </div>
       <div class="stack-block cms">
         <h3>CMS & Soluções</h3>
         <div class="pill-grid">
-          @for (tech of stack().cms; track tech) {
-          <app-stack-pill [name]="tech" [iconPath]="getIcon(tech)"></app-stack-pill>
+          @for (tech of stack().cms; track tech; let i = $index) {
+          <app-stack-pill 
+            [name]="tech" 
+            [iconPath]="getIcon(tech)" 
+            category="cms"
+            [style.--delay]="i">
+          </app-stack-pill>
           }
         </div>
       </div>
