@@ -18,13 +18,6 @@
   --accent-color: #06b6d4;
 
 /* ================
-  Tema Base (Dark)
-================= */
-  --bg-color: #111827;
-  --text-color: #f9fafb;
-  --card-bg: rgba(255, 255, 255, 0.05);
-
-/* ================
   Tema Base (Light)
 ================= */  
   --bg-color: #ffffff;
@@ -46,8 +39,9 @@
   --pill-devops-text: #4b5563; // DevOps/Tools (Cinza/Dark)
   --pill-devops-bg: rgba(107, 114, 128, 0.1);
   --pill-devops-border: rgba(107, 114, 128, 0.2);
-  --pill-cms-text: #d32f2f; // CMS (Vermelho)
-  --pill-cms-bg: rgba(211, 47, 47, 0.1);
+  --pill-cms-text: #db2777; // CMS (Rosa)
+  --pill-cms-bg: rgba(219, 39, 119, 0.1);
+  --pill-cms-border: rgba(219, 39, 119, 0.2);
 }
 
 /* =========================
@@ -71,6 +65,6 @@
   --pill-devops-text: #9ca3af;
   --pill-devops-bg: rgba(156, 163, 175, 0.15);
 
-  --pill-cms-text: ;
-  --pill-cms-bg: ;
+  --pill-cms-text: #f472b6;
+  --pill-cms-bg: rgba(244, 114, 182, 0.15);
 }
