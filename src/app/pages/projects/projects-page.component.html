@@ -1,1 +1,13 @@
-<p>projects works!</p>
+<div class="projects-container">
+  <header class="projects-header">
+    <h1>Meus Trabalhos</h1>
+    <p>Uma galeria de soluções capturadas em código.</p>
+  </header>
+
+  <main class="photo-deck">
+    @for (item of projects(); track item.name; let i = $index) {
+    <app-project-card [project]="item" [index]="i">
+    </app-project-card>
+    }
+  </main>
+</div>

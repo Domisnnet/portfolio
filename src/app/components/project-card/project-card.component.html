@@ -1,0 +1,14 @@
+<article class="project-card" (click)="openLink()">
+  <div class="card-image-container">
+    <img [src]="project().image" [alt]="'Screenshot do projeto ' + project().name" class="card-image">
+  </div>
+  <div class="card-content">
+    <h3 class="card-title">{{ project().name }}</h3>
+    <p class="card-description">{{ project().description }}</p>
+    <footer class="card-footer">
+      @for (tech of project().tags; track tech) {
+        <span class="card-tag">{{ tech }}</span>
+      }
+    </footer>
+  </div>
+</article>
