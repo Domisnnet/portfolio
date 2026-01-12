@@ -12,7 +12,7 @@ export class ThemeService {
   private renderer: Renderer2;
   private isBrowser = isPlatformBrowser(this.platformId);
 
-  theme = signal<Theme>('dark'); // Start with a safe default
+  theme = signal<Theme>('dark');
 
   constructor() {
     this.renderer = this.rendererFactory.createRenderer(null, null);
@@ -22,11 +22,9 @@ export class ThemeService {
       this.theme.set(initialTheme);
     }
 
-    // Effect to react to theme changes
     effect(() => {
       if (this.isBrowser) {
         const currentTheme = this.theme();
-        // The CSS is designed with dark as the default (no class) and light as the override class.
         if (currentTheme === 'light') {
           this.renderer.addClass(document.documentElement, 'light');
         } else {
@@ -46,12 +44,6 @@ export class ThemeService {
       return 'dark';
     }
     const storedTheme = localStorage.getItem('theme') as Theme | null;
-    if (storedTheme) {
-      return storedTheme;
-    }
-    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light';
-    }
-    return 'dark';
+    return storedTheme || 'dark';
   }
 }
