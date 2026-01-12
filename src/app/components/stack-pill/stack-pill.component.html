@@ -1,8 +1,6 @@
-<div class="stack-pill" [ngClass]="category()">
-  <div *ngIf="iconPath" 
-    class="pill-icon" 
-    [style.mask-image]="'url(' + iconPath + ')'"
-    [style.-webkit-mask-image]="'url(' + iconPath + ')'">
-  </div>
-  <span class="pill-text">{{ name() }}</span>
+<div *ngIf="iconPath()" 
+  class="pill-icon" 
+  [style.mask-image]="'url(' + iconPath() + ')'"
+  [style.-webkit-mask-image]="'url(' + iconPath() + ')'">
 </div>
+<span class="pill-text">{{ name() }}</span>
