@@ -1,19 +1,17 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './theme-toggle.component.html',
-  styleUrl: './theme-toggle.component.scss',
+  styleUrls: ['./theme-toggle.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeToggleComponent {
-  themeService = inject(ThemeService);
+  protected themeService = inject(ThemeService);
+  protected isDark = computed(() => this.themeService.theme() === 'dark');
 
-  toggleTheme() {
+  protected toggle(): void {
     this.themeService.toggleTheme();
   }
 }
