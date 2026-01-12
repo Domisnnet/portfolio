@@ -15,14 +15,14 @@ export class ProjectsPageComponent {
       title: 'Projeto Alura',
       description: 'Um App que verifica a idade super estiloso.',
       image: 'assets/images/projeto-alura.png',
-      tags: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+      tags: ['HTML5', 'CSS3', 'JavaScript', 'Node.js'],
       link: 'https://github.com/Domisnnet/Projeto-Alura'
     },
     {
       title: 'Drakonik Nexus',
       description: 'Um jogo de cartas da memória inspirado em Yu-Gi-Oh!',
       image: 'assets/images/drakonik-nexus.png',
-      tags: ['Vue.js', 'Tailwind CSS', 'Firebase'],
+      tags: ['Vue.js', 'Tailwind.CSS', 'Firebase'],
       link: 'https://github.com/Domisnnet/Drakonik-Nexus-Vue.Js'
     }
     // Adicione mais aqui conforme precisar

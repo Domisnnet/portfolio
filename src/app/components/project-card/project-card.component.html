@@ -10,8 +10,8 @@
       <h4 class="back-title">Tecnologias</h4>
       <div class="stack-pills">
         @for (tag of project().tags; track tag) {
-          <span class="pill" [ngClass]="tag.toLowerCase().split(' ').join('-').replace('.', '-')">
-            <img [src]="'assets/icons/' + tag.toLowerCase().split(' ').join('-').replace('.', '-') + '.svg'" 
+          <span class="pill" [ngClass]="getIconName(tag)">
+            <img [src]="'assets/icons/' + getIconName(tag) + '.svg'" 
                  (error)="$event.target.style.display='none'"
                  class="pill-icon">
             {{ tag }}

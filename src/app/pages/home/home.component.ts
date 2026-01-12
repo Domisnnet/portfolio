@@ -14,6 +14,7 @@ export class HomeComponent {
     frontend: [
       'HTML5',
       'CSS3',
+      'Tailwind.CSS',
       'Sass',
       'Bootstrap',
       'JavaScript',
@@ -35,6 +36,7 @@ export class HomeComponent {
     const map: Record<string, string> = {
       'HTML5': 'assets/icons/html5.svg',
       'CSS3': 'assets/icons/css3.svg',
+      'Tailwind.CSS': 'assets/icons/tailwind.svg',
       'Sass': 'assets/icons/sass.svg',
       'Bootstrap': 'assets/icons/bootstrap.svg',
       'JavaScript': 'assets/icons/javascript.svg',
