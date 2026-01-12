@@ -25,7 +25,7 @@ export class HomeComponent {
       'React',
       'Vue.js',
     ],
-    backend: ['Node.js', 'Express'],
+    backend: ['Node.js', 'Express', 'Python'],
     databases: ['MongoDB', 'MySQL'],
     devops: ['GitHub', 'VSCode', 'Vercel', 'NPM'],
     cms: [
@@ -47,6 +47,7 @@ export class HomeComponent {
       'Vue.js': 'assets/icons/vue-js.svg',
       'Node.js': 'assets/icons/node-js.svg',
       'Express': 'assets/icons/express.svg',
+      'Python': 'assets/icons/python.svg',
       'MongoDB': 'assets/icons/mongodb.svg',
       'MySQL': 'assets/icons/mysql.svg',
       'GitHub': 'assets/icons/github.svg',
