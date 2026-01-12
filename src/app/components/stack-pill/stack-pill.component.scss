@@ -1,7 +1,7 @@
 /* =============
     Estilização
    ============= */
-.stack-pill {
+:host {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -15,18 +15,7 @@
     opacity: 0;
     animation: revealPill 0.5s ease forwards;
     animation-delay: calc(var(--delay) * 0.1s);
-}
-
-.pill-icon {
-    width: 20px;
-    height: 20px;
-    background-color: currentColor; 
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    mask-position: center;
-}
+}    
 
 /* =================
     Cores do Root
@@ -35,47 +24,35 @@
 &.backend  { color: var(--pill-back-text); background: var(--pill-back-bg); border-color: var(--pill-back-border); }
 &.database { color: var(--pill-db-text); background: var(--pill-db-bg); border-color: var(--pill-db-border); }
 &.devops   { color: var(--pill-devops-text); background: var(--pill-devops-bg); border-color: var(--pill-devops-border); }
-&.cms  { color: var(--pill-cms-text); background: var(--pill-cms-bg); border-color: var(--pill-cms-border); }
+&.cms { color: var(--pill-cms-text); background: var(--pill-cms-bg); border-color: var(--pill-cms-border);}
 
-&:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  filter: brightness(1.2);
+&:hover { 
+    transform: translateY(-3px) 
+    scale(1.05); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    filter: brightness(1.2);
+}
+
+
+.pill-icon {
+    width: 20px;
+    height: 20px;
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-position: center;
 }
 
 @keyframes revealPill {
-from { opacity: 0; transform: translateY(10px); }
-to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-/* =================
-    Categorias
-================= */
-/*
-.frontend .pill { 
-    background: #1976d2; // Azul Material (Angular/React vibe) 
-} 
-
-.backend .pill { 
-    background: #388e3c; // Verde Material (Node.js vibe) 
-} 
-
-.databases .pill { 
-    background: #f57c00; // Laranja Material (Mongo/MySQL vibe) 
-} 
-
-.devops .pill { 
-    background: #6a1b9a; // Roxo Material (GitHub/Docker vibe) 
-} 
-
-.cms .pill { 
-    background: #d32f2f; // Vermelho Material (WordPress vibe) 
-}
-
-
-.pill:hover {
-    opacity: 0.85;
-    transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
-}
-*/
