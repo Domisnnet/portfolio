@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./stack-pill.component.scss']
 })
 export class StackPillComponent {
-  @Input() name!: string;
-  @Input() icon?: string;
+  @Input() name: string = '';
+  @Input() iconPath: string = ''; 
+  @Input() category: 'frontend' | 'backend' = 'frontend';
 }
