@@ -1,167 +1,131 @@
-/* =========================
-  Header - Estilos Gerais
-========================= */
 .main-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 1rem 0;
-  backdrop-filter: blur(10px);
-  background-color: var(--header-background);
-  border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s, border-color 0.3s;
-}
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.8rem 0;
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem; 
-}
-
-/* =========================
-  Logo
-========================= */
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 1002;
-
-  a {
-    text-decoration: none;
-    color: var(--text-color);
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
+    padding: 0 24px;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  
+  .logo-text {
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+    color: var(--text-color);
   }
 
   .logo-dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: var(--primary-color);
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
     border-radius: 50%;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 2px solid var(--accent-color);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
   }
 }
 
-/* =========================
-  Links de Navegação (Desktop)
-========================= */
+// Links de Navegação
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 2rem;
+  gap: 32px;
   list-style: none;
-
-  li {
-    display: flex;
-    align-items: center;
-  }
 
   a {
     text-decoration: none;
     color: var(--text-color);
+    font-size: 0.85rem;
     font-weight: 500;
-    transition: color 0.3s;
-    padding-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    transition: all 0.3s;
 
-    &:hover {
-      color: var(--primary-color);
-    }
-
-    &.active {
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--primary-color);
-    }
-  }
-
-  .btn-contact {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: var(--secondary-color);
-      color: #fff;
-    }
-
-    &.active {
-      border: none;
+    &:hover, &.active {
+      opacity: 1;
+      color: var(--accent-color);
     }
   }
 }
 
-/* =============================
-  Botão do Menu Mobile (Hamburguer)
-============================= */
-.menu-toggle {
-  display: none; 
-  background: none;
-  border: none;
+// Ações (Toggle + Botão)
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   cursor: pointer;
-  padding: 0;
-  z-index: 1001;
+  overflow: hidden;
+  transition: all 0.3s;
 
-  .icon-menu, .icon-close {
-    font-size: 2rem;
-    color: var(--text-color);
+  .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    &.is-dark { transform: translateY(-40px); }
+    
+    span {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
   }
 
-  .icon-close {
-    font-size: 2.5rem;
-    line-height: 1;
+  &:hover {
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.1);
   }
 }
 
-/* =========================
-  Responsividade
-========================= */
-@media (max-width: 768px) {
-  .nav-items {
-    display: none;
+.btn-contact {
+  background: var(--accent-color);
+  color: #000;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.3);
   }
-  
-  .nav-links {
-    display: none; 
-    flex-direction: column;
-    position: absolute;
-    top: 70px; 
-    left: 0;
-    right: 0;
-    background-color: var(--header-background);
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    align-items: flex-start;
-    gap: 1.5rem;
+}
 
-    &.mobile-active {
-      display: flex;
-    }
-
-    a {
-      padding-bottom: 0;
-      border-bottom: none;
-
-      &.active {
-        border-bottom: none;
-        color: var(--primary-color);
-        font-weight: 600;
-      }
-    }
-    
-    .btn-contact {
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  .menu-toggle {
-    display: block; 
-  }
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
 }
