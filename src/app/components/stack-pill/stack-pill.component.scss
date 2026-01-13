@@ -1,83 +1,49 @@
-/* ================================
-   STACK PILL – FINAL VERSION
-================================ */
-
-   :host {
+:host {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
     border-radius: 50px;
-
     font-family: var(--font-main, sans-serif);
     font-weight: 600;
     font-size: 0.85rem;
-    letter-spacing: 0.3px;
-
     border: 1px solid transparent;
-    background-clip: padding-box;
-
+    transition: all 0.3s ease;
     opacity: 0;
-    transform: translateY(6px);
-
     animation: revealPill 0.5s ease forwards;
     animation-delay: calc(var(--delay, 0) * 0.1s);
 
-    transition: 
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background-color 0.3s ease;
+    // Seletores de Categoria com Fallback (caso a variável não exista)
+    &.frontend { 
+        color: var(--pill-frontend-text, #61dafb); 
+        background: var(--pill-frontend-background, rgba(97, 218, 251, 0.1)); 
+        border-color: var(--pill-frontend-border, rgba(97, 218, 251, 0.2)); 
+    }
+    &.backend { 
+        color: var(--pill-backend-text, #3c873a); 
+        background: var(--pill-backend-background, rgba(60, 135, 58, 0.1)); 
+        border-color: var(--pill-backend-border, rgba(60, 135, 58, 0.2)); 
+    }
+    &.database { 
+        color: var(--pill-database-text, #47a248); 
+        background: var(--pill-database-background, rgba(71, 162, 72, 0.1)); 
+        border-color: var(--pill-database-border, rgba(71, 162, 72, 0.2)); 
+    }
+    &.devops { 
+        color: var(--pill-devops-text, #2496ed); 
+        background: var(--pill-devops-background, rgba(36, 150, 237, 0.1)); 
+        border-color: var(--pill-devops-border, rgba(36, 150, 237, 0.2)); 
+    }
+    &.cms { 
+        color: var(--pill-cms-text, #d54e21); 
+        background: var(--pill-cms-background, rgba(213, 78, 33, 0.1)); 
+        border-color: var(--pill-cms-border, rgba(213, 78, 33, 0.2)); 
+    }
 
-    will-change: transform, opacity;
-}
-
-/* ================================
-   CATEGORY VARIANTS (WITH FALLBACK)
-================================ */
-
-:host(.frontend) {
-    color: var(--pill-frontend-text, #61dafb);
-    background: var(--pill-frontend-background, rgba(97, 218, 251, 0.1));
-    border-color: var(--pill-frontend-border, rgba(97, 218, 251, 0.25));
-}
-
-:host(.backend) {
-    color: var(--pill-backend-text, #3c873a);
-    background: var(--pill-backend-background, rgba(60, 135, 58, 0.1));
-    border-color: var(--pill-backend-border, rgba(60, 135, 58, 0.25));
-}
-
-:host(.database) {
-    color: var(--pill-database-text, #47a248);
-    background: var(--pill-database-background, rgba(71, 162, 72, 0.1));
-    border-color: var(--pill-database-border, rgba(71, 162, 72, 0.25));
-}
-
-:host(.devops) {
-    color: var(--pill-devops-text, #2496ed);
-    background: var(--pill-devops-background, rgba(36, 150, 237, 0.1));
-    border-color: var(--pill-devops-border, rgba(36, 150, 237, 0.25));
-}
-
-:host(.cms) {
-    color: var(--pill-cms-text, #d54e21);
-    background: var(--pill-cms-background, rgba(213, 78, 33, 0.1));
-    border-color: var(--pill-cms-border, rgba(213, 78, 33, 0.25));
-}
-
-/* ================================
-   HOVER (DESKTOP ONLY)
-================================ */
-
-@media (hover: hover) {
-    :host:hover {
-        transform: translateY(-3px) scale(1.05);
-        box-shadow: 0 10px 24px -6px currentColor;
+    &:hover { 
+        transform: translateY(-3px) scale(1.05); 
+        box-shadow: 0 8px 20px -5px currentColor; 
     }
 }
-
-/* ================================
-   INNER STRUCTURE
-================================ */
 
 .stack-pill-inner {
     display: flex;
@@ -92,13 +58,6 @@
     flex-shrink: 0;
 }
 
-/* ================================
-   ANIMATIONS
-================================ */
-
 @keyframes revealPill {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
