@@ -20,10 +20,11 @@
   }
 
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    justify-items: center;
+   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 42px;
+  justify-items: center;
+  margin-top: 60px;
   }
 }
 

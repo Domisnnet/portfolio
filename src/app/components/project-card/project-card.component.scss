@@ -1,7 +1,6 @@
 /* =========================
   CARD BASE
 ========================= */
-
 .artifact-card {
   width: 100%;
   max-width: 260px;
@@ -9,13 +8,18 @@
   height: 360px;
   perspective: 1200px;
   position: relative;
-  transform: rotate(calc(var(--tilt, 0) * 1deg));
+  --tilt: 0;
+  transform: rotate(var(--rotation, 0deg));
+}
+
+.artifact-card:hover {
+  transform: translateY(-6px) rotate(var(--rotation, 0deg));
+  transition: transform 0.3s ease;
 }
 
 /* =========================
   INNER (FLIP ENGINE)
 ========================= */
-
 .artifact-inner {
   width: 100%;
   height: 100%;
@@ -31,7 +35,6 @@
 /* =========================
   FACES
 ========================= */
-
 .artifact-face {
   position: absolute;
   inset: 0;
@@ -42,7 +45,6 @@
 /* =========================
   FRONT — POLAROID
 ========================= */
-
 .artifact-front {
   background: #fdfdfd;
   padding: 14px 14px 26px;
@@ -50,10 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), inset 0 -2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .artifact-image {
@@ -68,7 +67,6 @@
 /* =========================
   BACK — CONTEÚDO
 ========================= */
-
 .artifact-back {
   background: linear-gradient(180deg, #0f172a, #020617);
   transform: rotateY(180deg);
@@ -84,7 +82,6 @@
 /* =========================
   HEADER
 ========================= */
-
 .artifact-header {
   h3 {
     font-size: 1rem;
@@ -103,7 +100,6 @@
 /* =========================
   STACK PILLS
 ========================= */
-
 .artifact-stack {
   display: flex;
   flex-wrap: wrap;
@@ -114,7 +110,6 @@
 /* =========================
   ACTION
 ========================= */
-
 .artifact-action {
   display: flex;
   justify-content: center;
