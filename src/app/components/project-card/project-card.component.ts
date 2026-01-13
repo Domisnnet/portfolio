@@ -8,13 +8,11 @@ import { Component, Input, signal } from '@angular/core';
 })
 export class ProjectCardComponent {
   @Input() project!: any;
-
+  @Input() index?: number;
   isFlipped = signal(false);
-
   toggleFlip() {
     this.isFlipped.update(v => !v);
   }
-
   mapTag(tag: string) {
     const map: Record<string, string> = {
       'Angular': 'frontend',
