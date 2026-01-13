@@ -4,6 +4,9 @@
 :host {
   display: block;
   width: 240px;
+  --enter-delay: calc(var(--index, 0) * 120ms);
+  animation: artifact-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--enter-delay);
 }
 
 .artifact-card {
@@ -17,6 +20,7 @@
   flex-shrink: 0;
   align-self: flex-start;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+  will-change: transform;
 }
 
 .artifact-card:first-child {
@@ -29,10 +33,6 @@
 
 .artifact-card:nth-child(n+4) {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-}
-
-.artifact-card:hover {
-  transform: translateY(-10px) rotate(var(--rotation, 0deg)) scale(1.04);
 }
 
 /* =========================
@@ -81,19 +81,6 @@
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-}
-
-.artifact-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-}
-
-.artifact-card.image-loaded .artifact-image {
-  opacity: 1;
 }
 
 /* =========================
@@ -171,15 +158,8 @@
 }
 
 /* =========================
-  ENTRADA CINEMATOGRÁFICA
+  KEYFRAMES
 ========================= */
-
-:host {
-  --enter-delay: calc(var(--index, 0) * 120ms);
-  animation: artifact-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--enter-delay);
-}
-
 @keyframes artifact-enter {
   from {
     opacity: 0;
