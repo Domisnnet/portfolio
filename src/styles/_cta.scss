@@ -2,14 +2,14 @@
   CTA container
 ================= */
 .cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 600px) {
-    .cta {
-        flex-direction: column;
-        align-items: center;
-    }
+  .cta {
+    flex-direction: column;
+    align-items: center;
+  }
 }

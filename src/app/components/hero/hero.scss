@@ -4,7 +4,7 @@
 .hero-section {
   padding: 6rem 0;
   background-color: var(--background-color);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .hero-container {
@@ -47,7 +47,9 @@
     font-weight: 600;
     border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
+    transition:
+      background-color 0.3s,
+      transform 0.3s;
 
     &:hover {
       background-color: var(--secondary-color);
@@ -60,7 +62,7 @@
   Visual Abstrato e Animação
 ========================= */
 .hero-visual {
-  display: none; 
+  display: none;
   position: relative;
   height: 300px;
   justify-content: center;
@@ -119,18 +121,18 @@
 ========================= */
 @media (min-width: 992px) {
   .hero-container {
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
   }
 
   .hero-text {
     text-align: left;
-    
+
     .hero-subtitle {
       margin-left: 0;
     }
   }
 
   .hero-visual {
-    display: flex; 
+    display: flex;
   }
 }

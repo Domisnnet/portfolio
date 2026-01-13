@@ -1,15 +1,20 @@
 <section class="hero">
-  <img src="/assets/images/domisdev.png" alt="Avatar de DomisDev" width="150" height="150" class="avatar">
+  <img
+    src="/assets/images/domisdev.png"
+    alt="Avatar de DomisDev"
+    width="150"
+    height="150"
+    class="avatar"
+  />
   <div>
     <h2>Olá, eu sou o DomisDev — Dev front end</h2>
-    <p>Estudando para ser um futuro Full Stack e explorando tecnologias modernas para criar experiências digitais únicas.</p>
+    <p>
+      Estudando para ser um futuro Full Stack e explorando tecnologias modernas para criar
+      experiências digitais únicas.
+    </p>
     <div class="cta">
-      <a class="btn" href="assets/cv.pdf" download>
-        📄 Baixar CV
-      </a>
-      <a class="btn outline" href="https://github.com/Domisnnet" target="_blank">
-        🐙 GitHub
-      </a>
+      <a class="btn" href="assets/cv.pdf" download> 📄 Baixar CV </a>
+      <a class="btn outline" href="https://github.com/Domisnnet" target="_blank"> 🐙 GitHub </a>
     </div>
   </div>
 </section>
@@ -18,17 +23,20 @@
     <div>
       <h2>Minha Stack Dev</h2>
       <p class="tagline">Codificando ideias. Construindo o futuro!</p>
-      <p>Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.</p>
+      <p>
+        Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.
+      </p>
       <div class="stack-block frontend">
         <h3>Front-end</h3>
         <div class="pill-grid">
           @for (tech of stack().frontend; track tech; let i = $index) {
-          <app-stack-pill 
-            [name]="tech" 
-            [iconPath]="getIcon(tech)" 
-            category="frontend"
-            [style.--delay]="i">
-          </app-stack-pill>
+            <app-stack-pill
+              [name]="tech"
+              [iconPath]="getIcon(tech)"
+              category="frontend"
+              [style.--delay]="i"
+            >
+            </app-stack-pill>
           }
         </div>
       </div>
@@ -36,12 +44,13 @@
         <h3>Back-end</h3>
         <div class="pill-grid">
           @for (tech of stack().backend; track tech; let i = $index) {
-          <app-stack-pill 
-            [name]="tech" 
-            [iconPath]="getIcon(tech)" 
-            category="backend"
-            [style.--delay]="i">
-          </app-stack-pill>
+            <app-stack-pill
+              [name]="tech"
+              [iconPath]="getIcon(tech)"
+              category="backend"
+              [style.--delay]="i"
+            >
+            </app-stack-pill>
           }
         </div>
       </div>
@@ -50,12 +59,13 @@
         <h3>Bancos de Dados</h3>
         <div class="pill-grid">
           @for (tech of stack().databases; track tech; let i = $index) {
-          <app-stack-pill 
-            [name]="tech" 
-            [iconPath]="getIcon(tech)" 
-            category="database"
-            [style.--delay]="i">
-          </app-stack-pill>
+            <app-stack-pill
+              [name]="tech"
+              [iconPath]="getIcon(tech)"
+              category="database"
+              [style.--delay]="i"
+            >
+            </app-stack-pill>
           }
         </div>
       </div>
@@ -63,12 +73,13 @@
         <h3>DevOps & Ferramentas</h3>
         <div class="pill-grid">
           @for (tech of stack().devops; track tech; let i = $index) {
-          <app-stack-pill 
-            [name]="tech" 
-            [iconPath]="getIcon(tech)" 
-            category="devops"
-            [style.--delay]="i">
-          </app-stack-pill>
+            <app-stack-pill
+              [name]="tech"
+              [iconPath]="getIcon(tech)"
+              category="devops"
+              [style.--delay]="i"
+            >
+            </app-stack-pill>
           }
         </div>
       </div>
@@ -76,12 +87,13 @@
         <h3>CMS & Soluções</h3>
         <div class="pill-grid">
           @for (tech of stack().cms; track tech; let i = $index) {
-          <app-stack-pill 
-            [name]="tech" 
-            [iconPath]="getIcon(tech)" 
-            category="cms"
-            [style.--delay]="i">
-          </app-stack-pill>
+            <app-stack-pill
+              [name]="tech"
+              [iconPath]="getIcon(tech)"
+              category="cms"
+              [style.--delay]="i"
+            >
+            </app-stack-pill>
           }
         </div>
       </div>

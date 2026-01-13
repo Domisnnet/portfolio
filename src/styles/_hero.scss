@@ -2,19 +2,19 @@
   Hero Section
 ================= */
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
 }
 
 .hero .avatar {
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
-    transition: transform 0.3s ease;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  transition: transform 0.3s ease;
 }
 
 .hero .avatar:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }

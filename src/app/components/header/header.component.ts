@@ -10,7 +10,6 @@ import { ThemeToggleComponent } from '../../core/theme-toggle.component';
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class HeaderComponent {
   isMenuOpen = signal(false);
 

@@ -2,12 +2,7 @@
   <div class="artifact-inner">
     <!-- FACE A — IMAGEM (mistério) -->
     <section class="artifact-face artifact-front" (click)="toggleFlip()">
-      <img
-        class="artifact-image"
-        [src]="project().image"
-        [alt]="project().title"
-        loading="lazy"
-      />
+      <img class="artifact-image" [src]="project().image" [alt]="project().title" loading="lazy" />
     </section>
     <!-- FACE B — CONTEÚDO (revelação) -->
     <section class="artifact-face artifact-back">
@@ -17,10 +12,7 @@
       </header>
       <div class="artifact-stack">
         @for (tag of project().tags; track tag; let i = $index) {
-          <app-stack-pill
-            [class]="getIconName(tag)"
-            [style.--delay]="i"
-          >
+          <app-stack-pill [class]="getIconName(tag)" [style.--delay]="i">
             {{ tag }}
           </app-stack-pill>
         }

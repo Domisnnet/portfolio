@@ -6,12 +6,12 @@
 
   <div class="projects-grid">
     @for (project of projects(); track project.title; let i = $index) {
-      <app-project-card 
-        [project]="project" 
+      <app-project-card
+        [project]="project"
         [index]="i"
-        [style.--rotation]="(i % 2 === 0 ? '2deg' : '-2deg')"
+        [style.--rotation]="i % 2 === 0 ? '2deg' : '-2deg'"
       >
-    </app-project-card>
+      </app-project-card>
     }
   </div>
 </section>

@@ -5,7 +5,7 @@ import { StackPillComponent } from '../stack-pill/stack-pill.component';
 
 @Component({
   selector: 'app-project-card',
-  standalone: true, 
+  standalone: true,
   imports: [CommonModule, StackPillComponent],
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
@@ -17,11 +17,11 @@ export class ProjectCardComponent {
   isFlipped = signal(false);
 
   toggleFlip() {
-    this.isFlipped.update(value => !value);
+    this.isFlipped.update((value) => !value);
   }
 
   openLink(event: Event) {
-    event.stopPropagation(); 
+    event.stopPropagation();
     const link = this.project()?.link;
     if (link) {
       window.open(link, '_blank');

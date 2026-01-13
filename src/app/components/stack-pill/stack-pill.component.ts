@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class]': 'category()',
-    '[style.--delay]': 'delay()'
-  }
+    '[style.--delay]': 'delay()',
+  },
 })
 export class StackPillComponent {
   name = input<string>('');
