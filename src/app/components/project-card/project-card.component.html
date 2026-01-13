@@ -24,9 +24,9 @@
       </header>
       <div class="artifact-stack">
         <app-stack-pill
-          *ngFor="let tag of project.tags"
+          *ngFor="let tag of project.tags"  
           [label]="tag"
-          [type]="mapTag(tag)"
+          [category]="mapTag(tag)"
         />
       </div>
       <div class="artifact-action">
@@ -37,7 +37,7 @@
           rel="noopener noreferrer"
         >
           Ver Projeto
-        </a>
+        </a>  
       </div>
     </section>
   </div>
