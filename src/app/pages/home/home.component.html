@@ -47,7 +47,7 @@
       <div class="stack-block database">
         <h3>Bancos de Dados</h3>
         <div class="pill-grid">
-          @for (tech of stack().database; track tech; let i = $index) {
+          @for (tech of stack().databases; track tech; let i = $index) {
           <app-stack-pill 
             [label]="tech" 
             category="databases" 
