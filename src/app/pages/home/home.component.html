@@ -1,5 +1,6 @@
 <section class="hero">
-  <img src="/assets/images/domisdev.png" alt="Avatar de DomisDev" width="150" height="150" class="avatar" />
+  <img src="/assets/images/domisdev.png" alt="Avatar de DomisDev" 
+  width="150" height="150" class="avatar" />
   <div>
     <h2>Olá, eu sou o DomisDev — Dev front end</h2>
     <p>
@@ -24,10 +25,7 @@
         <h3>Front-end</h3>
         <div class="pill-grid">
           @for (tech of stack().frontend; track tech; let i = $index) {
-          <app-stack-pill 
-            [label]="tech" 
-            category="frontend" 
-            [style.--delay]="i">
+          <app-stack-pill [label]="tech" category="frontend" [style.--delay]="i">
           </app-stack-pill>
           }
         </div>
@@ -36,10 +34,7 @@
         <h3>Back-end</h3>
         <div class="pill-grid">
           @for (tech of stack().backend; track tech; let i = $index) {
-          <app-stack-pill 
-            [label]="tech" 
-            category="backend" 
-            [style.--delay]="i">
+          <app-stack-pill [label]="tech" category="backend" [style.--delay]="i">
           </app-stack-pill>
           }
         </div>
@@ -48,10 +43,7 @@
         <h3>Bancos de Dados</h3>
         <div class="pill-grid">
           @for (tech of stack().databases; track tech; let i = $index) {
-          <app-stack-pill 
-            [label]="tech" 
-            category="databases" 
-            [style.--delay]="i">
+          <app-stack-pill [label]="tech" category="databases" [style.--delay]="i">
           </app-stack-pill>
           }
         </div>
@@ -60,10 +52,7 @@
         <h3>DevOps & Ferramentas</h3>
         <div class="pill-grid">
           @for (tech of stack().devops; track tech; let i = $index) {
-          <app-stack-pill 
-            [label]="tech" 
-            category="devops" 
-            [style.--delay]="i">
+          <app-stack-pill [label]="tech" category="devops" [style.--delay]="i">
           </app-stack-pill>
           }
         </div>
@@ -72,10 +61,7 @@
         <h3>CMS & Soluções</h3>
         <div class="pill-grid">
           @for (tech of stack().cms; track tech; let i = $index) {
-          <app-stack-pill 
-            [label]="tech" 
-            category="cms" 
-            [style.--delay]="i">
+          <app-stack-pill [label]="tech" category="cms" [style.--delay]="i">
           </app-stack-pill>
           }
         </div>
