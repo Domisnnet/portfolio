@@ -1,20 +1,25 @@
 /* =========================
   CARD BASE
 ========================= */
+:host {
+  display: block;
+  width: 240px;
+}
+
 .artifact-card {
   width: 100%;
-  max-width: 260px;
-  min-width: 240px;
-  height: 360px;
-  perspective: 1200px;
+  max-width: 240px;
+  height: 340px;
   position: relative;
-  --tilt: 0;
+  perspective: 1200px;
   transform: rotate(var(--rotation, 0deg));
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  align-self: flex-start;
 }
 
 .artifact-card:hover {
   transform: translateY(-6px) rotate(var(--rotation, 0deg));
-  transition: transform 0.3s ease;
 }
 
 /* =========================
@@ -39,29 +44,38 @@
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 16px;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 /* =========================
   FRONT — POLAROID
 ========================= */
 .artifact-front {
-  background: #fdfdfd;
-  padding: 14px 14px 26px;
-  cursor: pointer;
+  background: #ffffff;
+  padding: 10px 10px 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), inset 0 -2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25), inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+}
+
+.artifact-photo {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
 }
 
 .artifact-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
-  border-radius: 8px;
-  background: #eaeaea;
+  display: block;
 }
 
 /* =========================
@@ -70,31 +84,37 @@
 .artifact-back {
   background: linear-gradient(180deg, #0f172a, #020617);
   transform: rotateY(180deg);
-  padding: 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
 
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.4);
+.artifact-back::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 4px;
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 /* =========================
   HEADER
 ========================= */
-.artifact-header {
-  h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #f8fafc;
-    margin-bottom: 6px;
-  }
+.artifact-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
 
-  p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: #94a3b8;
-  }
+.artifact-header p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #94a3b8;
 }
 
 /* =========================
@@ -124,10 +144,32 @@
   border-radius: 999px;
   text-decoration: none;
   transition: all 0.3s ease;
+}
 
-  &:hover {
-    background: rgba(148, 163, 184, 0.15);
-    border-color: rgba(148, 163, 184, 0.6);
-    transform: translateY(-1px);
+.artifact-button:hover {
+  background: rgba(148, 163, 184, 0.15);
+  border-color: rgba(148, 163, 184, 0.6);
+  transform: translateY(-1px);
+}
+
+/* =========================
+  ENTRADA CINEMATOGRÁFICA
+========================= */
+
+:host {
+  --enter-delay: calc(var(--index, 0) * 120ms);
+  animation: artifact-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--enter-delay);
+}
+
+@keyframes artifact-enter {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }

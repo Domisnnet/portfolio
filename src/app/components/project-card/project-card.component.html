@@ -2,23 +2,29 @@
   <div class="artifact-inner">
     <!-- FACE A — POLAROID -->
     <section class="artifact-face artifact-front" (click)="toggleFlip()">
-      <div class="artifact-polaroid">
-        <img class="artifact-image" [src]="project.image" [alt]="project.title" loading="lazy" />
+      <div class="artifact-photo">
+        <img class="artifact-image" [src]="project().image" [alt]="project().title" loading="lazy" draggable="false" />
       </div>
     </section>
     <!-- FACE B — CONTEÚDO -->
     <section class="artifact-face artifact-back">
       <header class="artifact-header">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
+        <h3>{{ project().title }}</h3>
+        <p>{{ project().description }}</p>
       </header>
       <div class="artifact-stack">
-        <app-stack-pill *ngFor="let tag of project.tags; let i = index" [ngClass]="mapTag(tag)" [style.--delay]="i">
+        @for (tag of project().tags; track tag; let i = $index) {
+        <app-stack-pill 
+          [ngClass]="mapTag(tag)" 
+          [style.--delay]="i"
+        >
           {{ tag }}
         </app-stack-pill>
+        }
       </div>
       <footer class="artifact-action">
-        <a class="artifact-button" [href]="project.link" target="_blank" rel="noopener noreferrer">
+        <a class="artifact-button" [href]="project().link" target="_blank" rel="noopener noreferrer"
+          (click)="$event.stopPropagation()">
           Ver Projeto
         </a>
       </footer>
