@@ -1,25 +1,40 @@
-<div class="flip-container" [class.flipped]="isFlipped()" (click)="toggleFlip()">
-  <div class="flipper">
-    <div class="front">
-      <div class="card-image-container">
-        <img [src]="project().image" [alt]="project().title">
-      </div>
-      <h3>{{ project().title }}</h3>
-    </div>
-    <div class="back">
-      <h4 class="back-title">Tecnologias</h4>
-      <div class="stack-pills">
-        @for (tag of project().tags; track tag) {
-          <span class="pill" [ngClass]="getIconName(tag)">
-            <img [src]="'assets/icons/' + getIconName(tag) + '.svg'" 
-                 (error)="$event.target.style.display='none'"
-                 class="pill-icon">
+<article class="artifact-card" [class.is-flipped]="isFlipped()">
+  <div class="artifact-inner">
+    <!-- FACE A — IMAGEM (mistério) -->
+    <section class="artifact-face artifact-front" (click)="toggleFlip()">
+      <img
+        class="artifact-image"
+        [src]="project().image"
+        [alt]="project().title"
+        loading="lazy"
+      />
+    </section>
+    <!-- FACE B — CONTEÚDO (revelação) -->
+    <section class="artifact-face artifact-back">
+      <header class="artifact-header">
+        <h3>{{ project().title }}</h3>
+        <p>{{ project().description }}</p>
+      </header>
+      <div class="artifact-stack">
+        @for (tag of project().tags; track tag; let i = $index) {
+          <app-stack-pill
+            [class]="getIconName(tag)"
+            [style.--delay]="i"
+          >
             {{ tag }}
-          </span>
+          </app-stack-pill>
         }
       </div>
-      <p class="description">{{ project().description }}</p>
-      <button class="btn-visit" (click)="openLink($event)">Ver Projeto</button>
-    </div>
+      <footer class="artifact-action">
+        <a
+          class="artifact-button"
+          [href]="project().link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver Projeto
+        </a>
+      </footer>
+    </section>
   </div>
-</div>
+</article>
