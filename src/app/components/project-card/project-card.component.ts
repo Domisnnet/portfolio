@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, input, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StackPillComponent } from '../stack-pill/stack-pill.component';
-import { StackPillData, TAG_CONFIG, PillCategory } from '../../constants/project-tags.config';
+import { TAG_CONFIG, PillCategory } from '../../constants/project-tags.config';
 
 @Component({
   selector: 'app-project-card',
@@ -12,6 +12,7 @@ import { StackPillData, TAG_CONFIG, PillCategory } from '../../constants/project
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
+  index = input<number>(0);
   project = input.required<{
     title: string;
     description: string;
@@ -30,17 +31,10 @@ export class ProjectCardComponent {
     this.flipped.update(v => !v);
   }
 
-  /* =========================
+ /* =========================
     STACK PILLS
   ========================= */
-  sortedPills(): StackPillData[] {
-    return this.project().tags
-      .map(tag => TAG_CONFIG[tag])
-      .filter(Boolean)
-      .sort(this.sortByCategory);
-  }
-
-  private sortByCategory(a: StackPillData, b: StackPillData): number {
+  visibleTags = computed(() => {
     const order: Record<PillCategory, number> = {
       frontend: 1,
       backend: 2,
@@ -49,20 +43,24 @@ export class ProjectCardComponent {
       cms: 5,
     };
 
-    return order[a.category] - order[b.category];
-  }
+    return this.project()
+      .tags.filter(tag => tag in TAG_CONFIG) 
+      .sort((a, b) => {
+        const pillA = TAG_CONFIG[a];
+        const pillB = TAG_CONFIG[b];
+        return order[pillA.category] - order[pillB.category];
+      });
+  });
 
   /* =========================
     CATEGORIES (GLOW ENGINE)
   ========================= */
   categories = computed<PillCategory[]>(() => {
     const set = new Set<PillCategory>();
-
-    for (const tag of this.project().tags) {
+    for (const tag of this.visibleTags()) {
       const pill = TAG_CONFIG[tag];
       if (pill) set.add(pill.category);
     }
-
     return Array.from(set);
   });
 }

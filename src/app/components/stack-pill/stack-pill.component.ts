@@ -1,21 +1,23 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { TAG_CONFIG, PillCategory } from '../../constants/project-tags.config';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+export type PillCategory =
+  | 'frontend'
+  | 'backend'
+  | 'databases'
+  | 'devops'
+  | 'cms';
 
 @Component({
   selector: 'app-stack-pill',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './stack-pill.component.html',
   styleUrls: ['./stack-pill.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[attr.data-category]': 'category()'
-  }
 })
 export class StackPillComponent {
-  tag = input.required<string>();
-
-  pill = computed(() => TAG_CONFIG[this.tag()]);
-
-  label = computed(() => this.pill()?.label ?? this.tag());
-  iconPath = computed(() => this.pill()?.iconPath);
-  category = computed<PillCategory>(() => this.pill()?.category ?? 'frontend');
+  label = input.required<string>();
+  iconPath = input<string>();
+  category = input<PillCategory>('frontend');
 }

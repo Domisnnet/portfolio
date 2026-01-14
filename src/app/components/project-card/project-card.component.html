@@ -2,19 +2,18 @@
   class="artifact-card"
   [class.is-flipped]="isFlipped()"
   (click)="toggleFlip()"
+  [attr.data-categories]="categories().join(' ')"
 >
   <div class="artifact-inner">
-    <!-- FRONT -->
     <div class="artifact-face artifact-front">
       <div class="artifact-photo">
         <img
-          class="artifact-image"
           [src]="project().image"
           [alt]="project().title"
+          loading="lazy"
         />
       </div>
     </div>
-    <!-- BACK -->
     <div class="artifact-face artifact-back">
       <div class="artifact-header">
         <h3>{{ project().title }}</h3>
@@ -22,8 +21,12 @@
       </div>
       <!-- STACK PILLS -->
       <div class="artifact-stack">
-        @for (tag of project().tags; track tag) {
-          <app-stack-pill [tag]="tag"></app-stack-pill>
+        @for (tag of visibleTags(); track tag) {
+          <app-stack-pill
+            [label]="TAG_CONFIG[tag].label"
+            [iconPath]="TAG_CONFIG[tag].iconPath"
+            [category]="TAG_CONFIG[tag].category"
+          />
         }
       </div>
       <!-- ACTION -->
@@ -33,7 +36,8 @@
             class="artifact-button"
             [href]="project().link"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             Ver projeto
           </a>
         }
