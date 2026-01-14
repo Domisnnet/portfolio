@@ -1,11 +1,12 @@
-import { TAG_CONFIG, StackPillData } from '../constants/project-tags.config';
+/* import { TAG_CONFIG, StackPillData } from '../constants/project-tags.config';
 
-export function resolveTag(tag: string): StackPillData {
+export function resolveTag(string: string): StackPillData {
   return (
-    TAG_CONFIG[tag] ?? {
-      label: tag,
+    TAG_CONFIG[string] ?? {
+      label: string,
       iconPath: 'assets/icons/default.svg',
       category: 'frontend',
     }
   );
 }
+*/  
