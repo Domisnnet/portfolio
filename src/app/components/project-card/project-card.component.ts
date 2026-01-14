@@ -12,6 +12,7 @@ import { TAG_CONFIG, PillCategory } from '../../constants/project-tags.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
+  readonly TAG_CONFIG = TAG_CONFIG;
   index = input<number>(0);
   project = input.required<{
     title: string;
