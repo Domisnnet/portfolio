@@ -22,13 +22,14 @@
       </div>
       <!-- STACK PILLS -->
       <div class="artifact-stack">
-        @for (tag of project().tags; track tag; let i = $index) {
+        @for (pill of sortedPills(); track pill.label) {
           <app-stack-pill
-            [tag]="tag"
-            [style.--delay]="i"
-          />
+            [label]="pill.label"
+            [iconPath]="pill.iconPath"
+            [category]="pill.category">
+          </app-stack-pill>
         }
-      </div>      
+      </div>
       <!-- ACTION -->
       <div class="artifact-action">
         @if (project().link) {
@@ -36,8 +37,7 @@
             class="artifact-button"
             [href]="project().link"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Ver projeto
           </a>
         }
