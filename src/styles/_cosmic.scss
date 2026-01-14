@@ -1,8 +1,14 @@
+/* ==================
+   BACKGROUND 
+================== */
 .cosmic-background {
     background-color: #050508;
-    background-image: radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.15), transparent), radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,.1), transparent), radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,.08), transparent);
+    background-image: radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.15), transparent), radial-gradient(1px 1px at 80% 70%, rgba(255, 255, 255, 0.10), transparent), radial-gradient(2px 2px at 40% 80%, rgba(255, 255, 255, 0.08), transparent);
 }
 
+/* =========================
+    SEÇÃO OBSERVADA 
+========================= */
 .cosmic-section {
     position: relative;
     background-color: #050508;
@@ -10,47 +16,40 @@
     isolation: isolate;
 }
 
-.cosmic-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-}
-    
+/* =======================
+    CAMADA ATMOSFÉRICA 
+======================= */
 .cosmic-section::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.25), transparent), radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,0.15), transparent), radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.2), transparent);
+    background-image: radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.25), transparent), radial-gradient(1px 1px at 70% 60%, rgba(255, 255, 255, 0.15), transparent), radial-gradient(2px 2px at 40% 80%, rgba(255, 255, 255, 0.20), transparent);
     background-size: 100% 100%;
-    pointer-events: none;
     opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
 }
 
+.cosmic-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* =========================
+    HUD ALIENÍGENA
+========================= */
 .cosmic-hud {
     position: absolute;
     top: 32px;
     left: 40px;
     font-family: 'Fira Code', monospace;
     font-size: 0.75rem;
-    color: rgba(0, 255, 200, 0.35);
     letter-spacing: 0.08em;
+    color: rgba(0, 255, 200, 0.35);
     pointer-events: none;
-}
-
-.alien-mark {
-    position: absolute;
-    inset: 0;
-    bottom: 40px;
-    right: 60px;
-    background: url('/assets/alien-symbol.svg') center/120px no-repeat;
-    font-family: monospace;
-    font-size: 2.5rem;
-    color: rgba(0, 255, 200, 0.08);
-    transform: rotate(-12deg);
-    user-select: none;
-    opacity: 0.04;
-    pointer-events: none;
-    filter: blur(0.2px);
+    z-index: 1;
 }
 
 .cosmic-hud span {
@@ -58,39 +57,85 @@
     opacity: 0.6;
 }
 
-.project-card {
-    animation: zeroGravity 14s ease-in-out infinite; animation-delay: calc(var(--index) * -2s);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 60px rgba(0, 255, 200, 0.05);
+/* =========================================
+    GLYPH / MARCA ALIENÍGENA RECORRENTE
+========================================= */
+.alien-mark {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    font-family: monospace;
+    font-size: 2.5rem;
+    letter-spacing: 0.3em;
+    content: '◉ △ ─';
+    color: rgba(0, 255, 200, 0.08);
+    transform: rotate(-12deg);
+    opacity: 0.04;
+    filter: blur(0.2px);
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
 }
 
+/* ===============================
+    META-INFORMAÇÃO - HUD 
+=============================== */
 .alien-meta {
-    font-family: var(--font-code);
+    font-family: var(--font-code, monospace);
     font-size: 0.65rem;
     letter-spacing: 0.08em;
-    opacity: 0.5;
     text-transform: uppercase;
+    opacity: 0.5;
 }
 
+/* ===============================
+    SINAL DORMENTE (Easter Egg)
+================================ */
 .alien-signal {
     position: absolute;
     top: 12px;
     right: 12px;
-    font-family: var(--font-code);
+    font-family: var(--font-code, monospace);
     font-size: 0.6rem;
     opacity: 0;
+    pointer-events: none;
+}
+
+/* ===================
+    FLUTUAÇÃO ZERO-G
+=================== */
+.project-card {
+    animation: zeroGravity 14s ease-in-out infinite;
+    animation-delay: calc(var(--index) * -2s);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 255, 200, 0.05);
 }
 
 /* =================
-    Easter egg
-================= */    
-@keyframes signal-glitch {
-    0% { opacity: 0 }
-    50% { opacity: 1 }
-    100% { opacity: 0 }
+    KEYFRAMES
+================= */
+@keyframes zeroGravity {
+    0% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+    50% {
+        transform: translateY(-6px) rotate(calc(var(--rotation) + 0.6deg));
+    }
+    100% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
 }
 
-@keyframes zeroGravity {
-    0%   { transform: translateY(0) rotate(var(--rotation)); }
-    50%  { transform: translateY(-6px) rotate(calc(var(--rotation) + 0.6deg)); }
-    100% { transform: translateY(0) rotate(var(--rotation)); }
+/* ===============
+    Easter egg
+=============== */    
+@keyframes signal-glitch {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
