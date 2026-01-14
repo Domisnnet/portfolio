@@ -102,9 +102,9 @@ const TAG_CONFIG: Record<string, StackPillData> = {
     iconPath: 'assets/icons/game-logic.svg',
     category: 'backend',
   },
-  Motion: {
+  'Motion': {
     label: 'Motion',
-    iconPath: 'assets/icons/motion,svg',
+    iconPath: 'assets/icons/motion.svg',
     category: 'frontend',
   },
   Product: {
