@@ -24,9 +24,19 @@ const TAG_CONFIG: Record<string, StackPillData> = {
     iconPath: 'assets/icons/angular.svg',
     category: 'frontend',
   },
-  'Vue.js': {
-    label: 'Vue.js',
-    iconPath: 'assets/icons/vue-js.svg',
+  CSS3: {
+    label: 'CSS3',
+    iconPath: 'assets/icons/css3.svg',
+    category: 'frontend',
+  },
+  HTML5: {
+    label: 'HTML5',
+    iconPath: 'assets/icons/html5.svg',
+    category: 'frontend',
+  },
+  React: {
+    label: 'React',
+    iconPath: 'assets/icons/react.svg',
     category: 'frontend',
   },
   JavaScript: {
@@ -39,14 +49,9 @@ const TAG_CONFIG: Record<string, StackPillData> = {
     iconPath: 'assets/icons/tailwind-css.svg',
     category: 'frontend',
   },
-  HTML5: {
-    label: 'HTML5',
-    iconPath: 'assets/icons/html5.svg',
-    category: 'frontend',
-  },
-  CSS3: {
-    label: 'CSS3',
-    iconPath: 'assets/icons/css3.svg',
+  'Vue.js': {
+    label: 'Vue.js',
+    iconPath: 'assets/icons/vue-js.svg',
     category: 'frontend',
   },
 
@@ -67,9 +72,24 @@ const TAG_CONFIG: Record<string, StackPillData> = {
   /* =========================
     CONCEITUAIS / VISUAIS
   ========================= */
-  UX: {
-    label: 'UX',
-    iconPath: 'assets/icons/ux.svg',
+  API: {
+    label: 'API',
+    iconPath: 'assets/icons/api.svg',
+    category: 'backend',
+  }, 
+  Architecture: {
+    label: 'Architecture',
+    iconPath: 'assets/icons/architecture.svg',
+    category: 'backend',
+  },
+  Automation: {
+    label: 'Automation',
+    iconPath: 'assets/icons/automation.svg',
+    category: 'devops',
+  },
+  'CSS Animations': {
+    label: 'Css Animations',
+    iconPath: 'assets/icons/css-animations.svg',
     category: 'frontend',
   },
   Design: {
@@ -77,14 +97,39 @@ const TAG_CONFIG: Record<string, StackPillData> = {
     iconPath: 'assets/icons/design.svg',
     category: 'frontend',
   },
-  Architecture: {
-    label: 'Architecture',
-    iconPath: 'assets/icons/architecture.svg',
+  'Game Logic': {
+    label: 'Game Logic',
+    iconPath: 'assets/icons/game-logic.svg',
     category: 'backend',
   },
-  Animation: {
-    label: 'Animation',
-    iconPath: 'assets/icons/animation.svg',
+  Motion: {
+    label: 'Motion',
+    iconPath: 'assets/icons/motion,svg',
+    category: 'frontend',
+  },
+  Product: {
+    label: 'Product',
+    iconPath: 'assets/icons/product.svg',
+    category: 'frontend',
+  },
+  SCSS: {
+    label: 'SCSS',
+    iconPath: 'assets/icons/scss.svg',
+    category: 'frontend',
+  },  
+  SVG: {
+    label: 'SVG',
+    iconPath: 'assets/icons/svg.svg',
+    category: 'frontend',
+  },
+  UI: {
+    label: 'UI',
+    iconPath: 'assets/icons/ui.svg',
+    category: 'frontend',
+  },
+  UX: {
+    label: 'UX',
+    iconPath: 'assets/icons/ux.svg',
     category: 'frontend',
   },
 };

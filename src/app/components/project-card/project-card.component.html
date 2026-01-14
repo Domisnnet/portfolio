@@ -20,25 +20,26 @@
       </div>
       <!-- STACK PILLS -->
       <div class="artifact-stack">
-        <ng-container *ngFor="let tag of project.tags">
+        @for (tag of project.tags; track tag) {
           <app-stack-pill
             [label]="resolvePill(tag).label"
             [iconPath]="resolvePill(tag).iconPath"
             [category]="resolvePill(tag).category"
           ></app-stack-pill>
-        </ng-container>
+        }
       </div>
       <!-- ACTION -->
       <div class="artifact-action">
-        <a
-          *ngIf="project.link"
-          class="artifact-button"
-          [href]="project.link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver projeto
-        </a>
+        @if (project.link) {
+          <a
+            class="artifact-button"
+            [href]="project.link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver projeto
+          </a>
+        }
       </div>
     </div>
   </div>
