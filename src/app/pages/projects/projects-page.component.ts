@@ -28,7 +28,7 @@ export class ProjectsPageComponent {
     },
     {
       title: 'KingDomfy',
-      description: 'Ecossistema digital autoral focado em comunidade, performance e arquitetura escalável.',
+      description: 'Streaming musical com player funcional, inspirada no Spotify.',
       image: 'assets/images/kingdomfy.png',
       tags: ['Angular', 'Firebase', 'Architecture', 'UX'],
       link: 'https://github.com/Domisnnet/King-Domfy',
