@@ -7,10 +7,6 @@
   padding: 2rem;
 }
 
-.stack-section .container {
-  padding-top: 0;
-}
-
 .home {
   display: flex;
   flex-direction: row;
@@ -30,8 +26,5 @@
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
-  }
-  .stack-section .container {
-    padding-top: 0;
   }
 }

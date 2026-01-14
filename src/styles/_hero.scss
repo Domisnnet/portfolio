@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding: 4rem 2rem 1rem; /* Reduzido o padding inferior */
+  padding: 0 2rem 0;
 }
 
 .hero .avatar {
@@ -22,7 +22,7 @@
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    padding: 2rem 1rem 1rem; /* Reduzido o padding inferior */
+    padding: 0 1rem 0; 
     text-align: center;
   }
 }
