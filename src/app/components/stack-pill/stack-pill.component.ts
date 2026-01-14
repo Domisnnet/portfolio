@@ -1,17 +1,24 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { PillCategory } from '../../constants/project-tags.config';
+import { TAG_CONFIG, StackPillData } from '../../constants/project-tags.config';
 
 @Component({
   selector: 'app-stack-pill',
+  standalone: true,
   templateUrl: './stack-pill.component.html',
   styleUrls: ['./stack-pill.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '[attr.data-category]': 'category()'
+    '[attr.data-category]': 'data().category'
   }
 })
 export class StackPillComponent {
-  label = input.required<string>();
-  iconPath = input<string>();
-  category = input<PillCategory>('frontend');
+  tag = input.required<string>();
+
+  data(): StackPillData {
+    return TAG_CONFIG[this.tag] ?? {
+      label: this.tag,
+      iconPath: '',
+      category: 'frontend',
+    };
+  }
 }

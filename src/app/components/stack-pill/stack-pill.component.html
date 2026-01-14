@@ -1,10 +1,10 @@
 <div class="stack-pill-inner">
-  @if (iconPath()) {
+  @if (data().iconPath) {
     <img
-      [src]="iconPath()"
-      [alt]="label()"
       class="stack-pill-logo"
+      [src]="data().iconPath"
+      [alt]="data().label"
     />
   }
-  <span class="stack-pill-text">{{ label() }}</span>
+  <span class="stack-pill-text">{{ data().label }}</span>
 </div>
