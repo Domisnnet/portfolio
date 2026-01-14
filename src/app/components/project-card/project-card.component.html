@@ -22,12 +22,8 @@
       </div>
       <!-- STACK PILLS -->
       <div class="artifact-stack">
-        @for (pill of sortedPills(); track pill.label) {
-          <app-stack-pill
-            [label]="pill.label"
-            [iconPath]="pill.iconPath"
-            [category]="pill.category">
-          </app-stack-pill>
+        @for (tag of project().tags; track tag) {
+          <app-stack-pill [tag]="tag"></app-stack-pill>
         }
       </div>
       <!-- ACTION -->
