@@ -1,32 +1,128 @@
-:host {
-  display: block;
-}
-
+/* =========================
+  HERO
+========================= */
 .hero {
   position: relative;
   z-index: 1;
-  padding: 35px;
+  min-height: 60vh;
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
+.hero .avatar {
+  border-radius: 50%;
+  border: 2px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.03);
+}
+
+.hero h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5f5;
+  margin-bottom: 24px;
+}
+
+/* CTA */
+.hero .cta {
+  display: flex;
+  gap: 14px;
+}
+
+.hero .btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #020617;
+  background: var(--accent-color);
+  transition: all 0.25s ease;
+}
+
+.hero .btn:hover {
+  transform: translateY(-1px);
+  background: #f8fafc;
+}
+
+.hero .btn.outline {
+  background: transparent;
+  color: #e5e7eb;
+  border: 2px solid rgba(148, 163, 184, 0.4);
+}
+
+.hero .btn.outline:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+/* =========================
+  STACK SECTION
+========================= */
 .stack-section {
-  padding: 80px 24px;
+  position: relative;
+  z-index: 1;
 }
 
+.stack-section h2 {
+  font-size: 2rem;
+  color: #f8fafc;
+  margin-bottom: 8px;
+}
+
+.stack-section .tagline {
+  color: #94a3b8;
+  margin-bottom: 48px;
+}
+
+/* =========================
+  STACK BLOCK (CATEGORIA)
+========================= */
 .stack-block {
-  margin-top: 32px;
-  padding: 24px;
+  margin-bottom: 40px;
+  padding: 24px 24px 28px;
   border-radius: 16px;
 
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(148, 163, 184, 0.08);
 }
 
 .stack-block h3 {
-  margin-bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  margin-bottom: 18px;
 }
 
+/* =========================
+  PILLS GRID
+========================= */
 .pill-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+/* =========================
+  RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero .cta {
+    justify-content: center;
+  }
 }
