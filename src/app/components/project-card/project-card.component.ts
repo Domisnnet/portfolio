@@ -1,7 +1,7 @@
-import { Component, ChangeDetectionStrategy, input, signal, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal, computed, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StackPillComponent } from '../stack-pill/stack-pill.component';
-import { TAG_CONFIG, PillCategory } from '../../constants/project-tags.config';
+import { STACK_CONFIG, PillCategory, TagKey, } from '../../constants/project-tags.config';
 
 @Component({
   selector: 'app-project-card',
@@ -12,30 +12,30 @@ import { TAG_CONFIG, PillCategory } from '../../constants/project-tags.config';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
-  readonly TAG_CONFIG = TAG_CONFIG;
   index = input<number>(0);
+
   project = input.required<{
     title: string;
     description: string;
     image: string;
-    tags: string[];
+    tags: TagKey[]; 
     link?: string;
   }>();
 
   /* =========================
-    FLIP STATE
+     FLIP STATE
   ========================= */
-  private flipped = signal(false);
-  isFlipped = this.flipped.asReadonly();
+  private readonly flipped = signal(false);
+  readonly isFlipped = this.flipped.asReadonly();
 
   toggleFlip(): void {
     this.flipped.update(v => !v);
   }
 
- /* =========================
-    STACK PILLS
+  /* =========================
+     STACK PILLS
   ========================= */
-  visibleTags = computed(() => {
+  readonly visibleTags = computed<TagKey[]>(() => {
     const order: Record<PillCategory, number> = {
       frontend: 1,
       backend: 2,
@@ -45,23 +45,25 @@ export class ProjectCardComponent {
     };
 
     return this.project()
-      .tags.filter(tag => tag in TAG_CONFIG) 
+      .tags
+      .filter((tag): tag is TagKey => tag in STACK_CONFIG)
       .sort((a, b) => {
-        const pillA = TAG_CONFIG[a];
-        const pillB = TAG_CONFIG[b];
+        const pillA = STACK_CONFIG[a];
+        const pillB = STACK_CONFIG[b];
         return order[pillA.category] - order[pillB.category];
       });
   });
 
   /* =========================
-    CATEGORIES (GLOW ENGINE)
+     CATEGORIES (GLOW ENGINE)
   ========================= */
-  categories = computed<PillCategory[]>(() => {
+  readonly categories = computed<PillCategory[]>(() => {
     const set = new Set<PillCategory>();
+
     for (const tag of this.visibleTags()) {
-      const pill = TAG_CONFIG[tag];
-      if (pill) set.add(pill.category);
+      set.add(STACK_CONFIG[tag].category);
     }
+
     return Array.from(set);
   });
 }
