@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StackService } from '../../services/stack.service';
 import { StackPillComponent } from '../../components/stack-pill/stack-pill.component';
 import { PillCategory } from '../../constants/project-tags.config';
+import { PERSONAL_STACK } from '../../constants/personal-stack.config';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,17 @@ import { PillCategory } from '../../constants/project-tags.config';
 export class HomeComponent {
   readonly stackService = inject(StackService);
 
-  readonly categories: PillCategory[] = [
+  readonly categories: readonly PillCategory[] = [
     'frontend',
     'backend',
     'databases',
     'devops',
     'cms',
   ];
+
+  getStack(category: PillCategory) {
+    return this.stackService.getPersonalStack(
+      PERSONAL_STACK[category]
+    );
+  }
 }

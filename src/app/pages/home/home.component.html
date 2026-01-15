@@ -19,7 +19,7 @@
     <div class="stack-block" [class]="category">
       <h3>{{ category | titlecase }}</h3>
       <div class="pill-grid">
-        @for (pill of stackService.getStack(category); track pill.key; let i = $index) {
+        @for (pill of getStack(category); track pill.key; let i = $index) {
         <app-stack-pill 
           [label]="pill.label" 
           [iconPath]="pill.iconPath" 
