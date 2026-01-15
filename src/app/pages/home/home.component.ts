@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StackPillComponent } from '../../components/stack-pill/stack-pill.component';
 import { StackService } from '../../services/stack.service';
+import { StackPillComponent } from '../../components/stack-pill/stack-pill.component';
 
 @Component({
   selector: 'app-home',
@@ -12,5 +12,5 @@ import { StackService } from '../../services/stack.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  constructor(public readonly stackService: StackService) {}
+  readonly stackService = inject(StackService);
 }

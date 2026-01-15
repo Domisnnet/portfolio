@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { STACK_CONFIG, PillCategory, StackKey } from '../constants/project-tags.config';
+import { STACK_CONFIG, PillCategory, TagKey } from '../constants/project-tags.config';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root',
+})
 export class StackService {
-  private readonly stackByCategory: Record<PillCategory, StackKey[]> = {
+  private readonly stackMap: Record<PillCategory, TagKey[]> = {
     frontend: [
       'html5',
       'css3',
@@ -22,9 +24,13 @@ export class StackService {
   };
 
   getStack(category: PillCategory) {
-    return this.stackByCategory[category].map(key => ({
+    return this.stackMap[category].map(key => ({
       key,
       ...STACK_CONFIG[key],
     }));
+  }
+
+  getCategories(): PillCategory[] {
+    return Object.keys(this.stackMap) as PillCategory[];
   }
 }
