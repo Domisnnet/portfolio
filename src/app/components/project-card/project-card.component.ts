@@ -1,7 +1,14 @@
-import { Component, ChangeDetectionStrategy, input, signal, computed, } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, input, signal, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StackPillComponent } from '../stack-pill/stack-pill.component';
-import { STACK_CONFIG, PillCategory, TagKey, } from '../../constants/project-tags.config';
+import { STACK_CONFIG, PillCategory, TagKey, StackPillData, } from '../../constants/project-tags.config';
+
+/* =========================
+  MODELO RESOLVIDO
+========================= */
+interface ResolvedPill extends StackPillData {
+  key: TagKey;
+}
 
 @Component({
   selector: 'app-project-card',
@@ -12,9 +19,6 @@ import { STACK_CONFIG, PillCategory, TagKey, } from '../../constants/project-tag
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
-  /* =========================
-    INPUTS
-  ========================= */
   index = input<number>(0);
 
   project = input.required<{
@@ -24,8 +28,6 @@ export class ProjectCardComponent {
     tags: TagKey[];
     link?: string;
   }>();
-
-  readonly STACK_CONFIG = STACK_CONFIG;
 
   /* =========================
     FLIP STATE
@@ -38,9 +40,9 @@ export class ProjectCardComponent {
   }
 
   /* =========================
-    STACK PILLS
+  PILLS RESOLVIDAS 
   ========================= */
-  readonly visibleTags = computed<TagKey[]>(() => {
+  readonly pills = computed<ResolvedPill[]>(() => {
     const order: Record<PillCategory, number> = {
       frontend: 1,
       backend: 2,
@@ -51,24 +53,21 @@ export class ProjectCardComponent {
 
     return this.project()
       .tags
-      .filter((tag): tag is TagKey => tag in STACK_CONFIG)
-      .sort((a, b) => {
-        const pillA = STACK_CONFIG[a];
-        const pillB = STACK_CONFIG[b];
-        return order[pillA.category] - order[pillB.category];
-      });
+      .map(key => ({
+        key,
+        ...STACK_CONFIG[key],
+      }))
+      .sort(
+        (a, b) => order[a.category] - order[b.category]
+      );
   });
 
   /* =========================
     CATEGORIES (GLOW ENGINE)
   ========================= */
   readonly categories = computed<PillCategory[]>(() => {
-    const set = new Set<PillCategory>();
-
-    for (const tag of this.visibleTags()) {
-      set.add(STACK_CONFIG[tag].category);
-    }
-
-    return Array.from(set);
+    return Array.from(
+      new Set(this.pills().map(p => p.category))
+    );
   });
 }
