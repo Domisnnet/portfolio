@@ -12,18 +12,23 @@ import { STACK_CONFIG, PillCategory, TagKey, } from '../../constants/project-tag
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
+  /* =========================
+    INPUTS
+  ========================= */
   index = input<number>(0);
 
   project = input.required<{
     title: string;
     description: string;
     image: string;
-    tags: TagKey[]; 
+    tags: TagKey[];
     link?: string;
   }>();
 
+  readonly STACK_CONFIG = STACK_CONFIG;
+
   /* =========================
-     FLIP STATE
+    FLIP STATE
   ========================= */
   private readonly flipped = signal(false);
   readonly isFlipped = this.flipped.asReadonly();
@@ -33,7 +38,7 @@ export class ProjectCardComponent {
   }
 
   /* =========================
-     STACK PILLS
+    STACK PILLS
   ========================= */
   readonly visibleTags = computed<TagKey[]>(() => {
     const order: Record<PillCategory, number> = {
@@ -55,7 +60,7 @@ export class ProjectCardComponent {
   });
 
   /* =========================
-     CATEGORIES (GLOW ENGINE)
+    CATEGORIES (GLOW ENGINE)
   ========================= */
   readonly categories = computed<PillCategory[]>(() => {
     const set = new Set<PillCategory>();

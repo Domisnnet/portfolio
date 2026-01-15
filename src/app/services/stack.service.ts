@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
-import { STACK_CONFIG, PillCategory, TagKey } from '../constants/project-tags.config';
+import { STACK_CONFIG, PillCategory, TagKey, StackPillData, } from '../constants/project-tags.config';
+
+export interface StackPillResolved extends StackPillData { key: TagKey; }
 
 @Injectable({
   providedIn: 'root',
 })
 export class StackService {
-  private readonly stackMap: Record<PillCategory, TagKey[]> = {
-    frontend: [
-      'html5',
-      'css3',
-      'sass',
-      'javascript',
-      'angular',
-      'react',
-      'vue',
-      'bootstrap',
-      'tailwind',
-    ],
-    backend: ['node', 'express', 'python'],
-    databases: ['mongodb', 'mysql'],
-    devops: ['github', 'vscode', 'vercel', 'npm'],
-    cms: ['wordpress'],
-  };
+  private readonly stackByCategory: Record<
+    PillCategory,
+    StackPillResolved[]
+  >;
 
-  getStack(category: PillCategory) {
-    return this.stackMap[category].map(key => ({
-      key,
-      ...STACK_CONFIG[key],
-    }));
+  constructor() {
+    this.stackByCategory = {
+      frontend: [],
+      backend: [],
+      databases: [],
+      devops: [],
+      cms: [],
+    };
+
+    for (const key of Object.keys(STACK_CONFIG) as TagKey[]) {
+      const pill = STACK_CONFIG[key];
+      this.stackByCategory[pill.category].push({
+        key,
+        ...pill,
+      });
+    }
   }
 
-  getCategories(): PillCategory[] {
-    return Object.keys(this.stackMap) as PillCategory[];
+  getStack(category: PillCategory): StackPillResolved[] {
+    return this.stackByCategory[category];
   }
 }
