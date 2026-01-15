@@ -1,21 +1,33 @@
+<section class="hero">
+  <img src="/assets/images/domisdev.png" alt="Avatar de DomisDev" width="150" height="150" class="avatar" />
+  <div>
+    <h2>Olá, eu sou o DomisDev — Dev front end</h2>
+    <p> Estudando para ser um futuro Full Stack e explorando tecnologias modernas para criar experiências digitais
+      únicas. </p>
+    <div class="cta">
+      <a class="btn" href="assets/cv.pdf" download> 📄 Baixar CV </a>
+      <a class="btn outline" href="https://github.com/Domisnnet" target="_blank"> 🐙 GitHub </a>
+    </div>
+  </div>
+</section>
 <section class="stack-section">
   <div class="container no-padding-top">
     <h2>Minha Stack Dev</h2>
     <p class="tagline">Codificando ideias. Construindo o Futuro!</p>
     @for (category of categories; track category) {
-      <div class="stack-block" [class]="category">
-        <h3>{{ category | titlecase }}</h3>
-        <div class="pill-grid">
-          @for (pill of stackService.getStack(category); track pill.key; let i = $index) {
-            <app-stack-pill
-              [label]="pill.label"
-              [iconPath]="pill.iconPath"
-              [category]="pill.category"
-              [style.--delay]="i"
-            />
-          }
-        </div>
+    <div class="stack-block" [class]="category">
+      <h3>{{ category | titlecase }}</h3>
+      <div class="pill-grid">
+        @for (pill of stackService.getStack(category); track pill.key; let i = $index) {
+        <app-stack-pill 
+          [label]="pill.label" 
+          [iconPath]="pill.iconPath" 
+          [category]="pill.category"
+          [style.--delay]="i" 
+        />
+        }
       </div>
+    </div>
     }
   </div>
 </section>
