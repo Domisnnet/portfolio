@@ -12,5 +12,5 @@ import { StackService } from '../../services/stack.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  constructor(public readonly stack: StackService) {}
+  constructor(public readonly stackService: StackService) {}
 }

@@ -1,20 +1,13 @@
 <section class="stack-section">
   <div class="container">
     <h2>Minha Stack Dev</h2>
-    @for (category of ['frontend','backend','databases','devops','cms']; track category) {
-      <div class="stack-block {{ category }}">
-        <h3>{{ category | titlecase }}</h3>
-        <div class="pill-grid">
-          @for (pill of stack.getStack(category); track pill.key; let i = $index) {
-            <app-stack-pill
-              [label]="pill.label"
-              [iconPath]="pill.iconPath"
-              [category]="pill.category"
-              [style.--delay]="i"
-            />
-          }
-        </div>
-      </div>
+    @for (pill of stackService.getStack(category); track pill.key; let i = $index) {
+    <app-stack-pill 
+      [label]="pill.label" 
+      [iconPath]="pill.iconPath" 
+      [category]="pill.category" 
+      [style.--delay]="i" 
+    />
     }
   </div>
 </section>
