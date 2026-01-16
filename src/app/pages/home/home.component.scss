@@ -1,79 +1,78 @@
-
+/* ===================
+  LAYOUT & SHARED
+=================== */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
   }
-  
-  .home {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-    text-align: left;
-  }
-  
+}
+
+/* =====================
+  HOME / HERO SECTION
+====================== */
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+
   .home-text {
     max-width: 600px;
   }
-  
-  /* ==================
-    Classes de utilitário
-  ================== */
-  .no-padding-top {
-    padding-top: 0 !important; 
-  }
-  
-  
-  /* =================
-    Responsivo
-  ================= */
+
   @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
-  }
-
-/* =========================
-  STACK BLOCK (CATEGORIA)
-========================= */
-.stack-block {
-  margin-bottom: 40px;
-  padding: 24px 24px 28px;
-  border-radius: 16px;
-
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(148, 163, 184, 0.08);
-}
-
-.stack-block h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #e5e7eb;
-  margin-bottom: 18px;
-}
-
-/* =========================
-  PILLS GRID
-========================= */
-.pill-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* =========================
-  RESPONSIVO
-========================= */
-@media (max-width: 768px) {
-  .hero {
     flex-direction: column;
     text-align: center;
-  }
 
-  .hero .cta {
-    justify-content: center;
+    .cta {
+      justify-content: center;
+    }
   }
 }
 
+/* =================
+  STACK SECTION 
+================= */
+
+.stack-section {
+  padding: 80px 0 120px;
+
+  .stack-block {
+    margin-top: 48px;
+    margin-bottom: 40px;
+    padding: 32px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e5e7eb;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+    }
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  }
+}
+
+/* =============
+    UTILITIES
+  ============= */
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
