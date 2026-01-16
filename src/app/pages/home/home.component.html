@@ -1,25 +1,29 @@
 <div class="container">
-    <div class="home">
-      <div class="home-text">
-        <h1>Olá, eu sou o Domis!</h1>
-        <p>
-          Desenvolvedor web full-stack com mais de 10 anos de experiência. <br />
-          Minha paixão é criar soluções web inovadoras, combinando design e as mais recentes tecnologias para entregar experiências de usuário excepcionais.
-        </p>
-      </div>
+  <div class="home">
+    <div class="home-text">
+      <h1>Olá, eu sou o Domis!</h1>
+      <p>
+        Desenvolvedor web full-stack com mais de 10 anos de experiência. <br />
+        Minha paixão é criar soluções web inovadoras, combinando design e as mais recentes tecnologias para entregar
+        experiências de usuário excepcionais.
+      </p>
     </div>
   </div>
-  
-  <!-- SEÇÃO DE TECNOLOGIAS -->
-  <div class="container no-padding-top">
-    @for (block of personalStack(); track block.category) {
-      <div class="stack-block">
-        <h3>{{ block.category }}</h3>
-        <div class="pill-grid">
-          @for (item of block.items; track item.name) {
-            <app-stack-pill [stack]="item"></app-stack-pill>
-          }
-        </div>
+</div>
+<!-- SEÇÃO DE TECNOLOGIAS -->
+<div class="container no-padding-top">
+  @for (category of categories; track category) {
+    <div class="stack-block" [class]="category">
+      <h3>{{ category | titlecase }}</h3>
+      <div class="pill-grid">
+        @for (pill of stackService.getPersonalStack(category); track pill.key) {
+          <app-stack-pill
+            [label]="pill.label"
+            [iconPath]="pill.iconPath"
+            [category]="pill.category"
+          />
+        }
       </div>
-    }
-  </div>
+    </div>
+  }  
+</div>
