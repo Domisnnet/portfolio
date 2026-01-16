@@ -58,8 +58,11 @@
 }
 
 .stack-pill-logo {
-  width: 16px;
-  height: 16px;
+  /* Force a consistent icon size across different SVG viewBoxes */
+  width: 16px !important;
+  height: 16px !important;
+  display: inline-block;
+  line-height: 0;
   object-fit: contain;
   flex-shrink: 0;
 }
