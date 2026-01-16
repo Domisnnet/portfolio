@@ -1,29 +1,51 @@
-<div class="container">
-  <div class="home">
-    <div class="home-text">
-      <h1>Olá, eu sou o Domis!</h1>
-      <p>
-        Desenvolvedor web estudando para ser um full-stack. <br />
-        Minha paixão é criar soluções web inovadoras, combinando design e as mais recentes tecnologias para entregar
-        experiências de usuário excepcionais.
-      </p>
-    </div>
-  </div>
-</div>
-<!-- SEÇÃO DE TECNOLOGIAS -->
-<div class="container no-padding-top">
-  @for (category of categories; track category) {
-    <div class="stack-block" [class]="category">
-      <h3>{{ category | titlecase }}</h3>
-      <div class="pill-grid">
-        @for (pill of stackService.getPersonalStack(category); track pill.key) {
-          <app-stack-pill
-            [label]="pill.label"
-            [iconPath]="pill.iconPath"
-            [category]="pill.category"
-          />
-        }
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <img
+        src="/assets/images/avatar.png"
+        alt="Avatar de DomisDev"
+        width="130"
+        height="130"
+        class="avatar"
+      />
+      <div class="hero-text">
+        <h1>Olá, eu sou o DomisDev!</h1>
+        <h2>Front-end Developer</h2>
+        <p>
+          Desenvolvedor Front-end focado em experiências modernas, interfaces
+          elegantes e arquiteturas bem definidas. Em evolução constante para
+          Full Stack.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="assets/cv.pdf" download>📄 Baixar CV</a>
+          <a
+            class="btn outline"
+            href="https://github.com/Domisnnet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🐙 GitHub
+          </a>
+        </div>
       </div>
     </div>
-  }  
-</div>
+  </div>
+</section>
+<section class="stack-section">
+  <div class="stack-container no-padding-top">
+    @for (category of categories; track category) {
+      <div class="stack-block" [class]="category">
+        <h3>{{ category | titlecase }}</h3>
+        <div class="pill-grid">
+          @for (pill of stackService.getPersonalStack(category); track pill.key) {
+            <app-stack-pill
+              [label]="pill.label"
+              [iconPath]="pill.iconPath"
+              [category]="pill.category"
+            />
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
