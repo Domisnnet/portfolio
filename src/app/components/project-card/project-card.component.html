@@ -14,8 +14,12 @@
       <!-- STACK PILLS -->
       <div class="artifact-stack">
         @for (pill of pills(); track pill.key; let i = $index) {
-        <app-stack-pill [label]="pill.label" [iconPath]="pill.iconPath" [category]="pill.category"
-          [style.--delay]="i" />
+        <app-stack-pill 
+          [label]="pill.label" 
+          [iconPath]="pill.iconPath" 
+          [category]="pill.category"
+          [style.--delay]="i" 
+        />
         }
       </div>
       <!-- ACTION -->
