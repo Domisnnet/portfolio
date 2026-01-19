@@ -2,12 +2,13 @@
   <div class="cosmic-grid-overlay"></div>
   <div class="tractor-beam"></div>
   <div class="cosmic-hud">
-    <span>SYSTEM_ACTIVE</span>
-    <span>SCANNING_ARTIFACTS</span>
+    <span class="status-line">SCANNING_ARTIFACTS...</span>
+    <span class="status-line">ENERGY_LEVEL: 98%</span>
+    <span class="status-line">TARGET_LOCKED</span>
   </div>
   <header class="page-header">
     <h1>Meus Trabalhos</h1>
-    <p>Uma galeria de soluções capturadas em código.</p>
+    <p>Artefatos tecnológicos recuperados.</p>
   </header>
   <div class="projects-grid">
     <ng-container *ngFor="let project of projects(); let i = index">
