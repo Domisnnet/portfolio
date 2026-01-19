@@ -1,9 +1,20 @@
-<div class="artifact-card" [class.is-flipped]="isFlipped()" (click)="toggleFlip()"
-  [attr.data-categories]="categories().join(' ')">
+<div 
+  class="artifact-card" 
+  [class.is-flipped]="isFlipped()" 
+  (click)="toggleFlip()"
+  [attr.data-categories]="categories().join(' ')"
+>
   <div class="artifact-inner">
     <div class="artifact-face artifact-front">
       <div class="artifact-photo">
         <img [src]="project().image" [alt]="project().title" loading="lazy" />
+        <div class="alien-scan-marker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M3 12h1m16 0h1M12 3v1m0 16v1"></path>
+            <path d="M12 8v0m0 8v0m-4-4v0m8 0v0"></path>
+          </svg>
+        </div>
       </div>
     </div>
     <div class="artifact-face artifact-back">
@@ -11,23 +22,27 @@
         <h3>{{ project().title }}</h3>
         <p>{{ project().description }}</p>
       </div>
-      <!-- STACK PILLS -->
       <div class="artifact-stack">
         @for (pill of pills(); track pill.key; let i = $index) {
-        <app-stack-pill 
-          [label]="pill.label" 
-          [iconPath]="pill.iconPath" 
-          [category]="pill.category"
-          [style.--delay]="i" 
-        />
+          <app-stack-pill 
+            [label]="pill.label" 
+            [iconPath]="pill.iconPath" 
+            [category]="pill.category"
+            [style.--delay]="i" 
+          />
         }
       </div>
-      <!-- ACTION -->
       <div class="artifact-action">
         @if (project().link) {
-        <a class="artifact-button" [href]="project().link" target="_blank" rel="noopener noreferrer">
-          Ver projeto
-        </a>
+          <a 
+            class="artifact-button" 
+            [href]="project().link" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            (click)="$event.stopPropagation()"
+          >
+            Ver projeto
+          </a>
         }
       </div>
     </div>
