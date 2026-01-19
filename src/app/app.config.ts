@@ -7,8 +7,6 @@ import { LoaderInterceptor } from './core/interceptors/loader-interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(
-      withInterceptors([LoaderInterceptor])
-    )
-  ]
+    provideHttpClient() // SEM interceptor
+  ]  
 };

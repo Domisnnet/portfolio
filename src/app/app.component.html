@@ -1,4 +1,4 @@
-<div class="loader-overlay" *ngIf="loading$ | async">
+<div class="loader-overlay" [class.hidden]="!(loading$ | async)">
     <app-loader></app-loader>
 </div>
 <div class="app-content" [class.visible]="!(loading$ | async)">

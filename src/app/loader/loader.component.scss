@@ -2,9 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: auto;
+    height: auto;
 }
 
 .loader-svg {
-    width: 140px;
-    height: 140px;
+    width: 220px;
+    height: 220px;
+    shape-rendering: geometricPrecision;
+    transform-origin: center;
 }
