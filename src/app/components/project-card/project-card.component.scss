@@ -2,9 +2,7 @@
   display: block;
   width: 240px;
   --enter-delay: calc(var(--index, 0) * 120ms);
-  animation: 
-    artifact-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
-    zeroGravity 14s ease-in-out infinite alternate;
+  animation: artifact-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both, zeroGravity 8s ease-in-out infinite alternate;
   animation-delay: var(--enter-delay), calc(var(--enter-delay) + 0.8s);  // A entrada acontece uma vez, a flutuação espera a entrada acabar
 }
 
