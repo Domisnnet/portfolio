@@ -4,35 +4,32 @@
     overflow: hidden;
     isolation: isolate;
     min-height: 100vh;
-    padding: 80px 20px;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 1200px;
-        height: 1200px;
-        transform: translate(-50%, -50%);
-        background:
-            repeating-conic-gradient(from 0deg, transparent 0deg 30deg, rgba(0, 255, 200, 0.01) 31deg 32deg),
-            radial-gradient(circle, transparent 40%, rgba(0, 255, 200, 0.03) 50%, transparent 70%);
-        border-radius: 50%;
-        animation: orbit-rotate 60s linear infinite;
-        z-index: -3;
-    }
-
-    &::after {
+    &::after {   // Nebulosa verde suave de fundo
         content: '';
         position: absolute;
         inset: 0;
         background:
-            radial-gradient(circle at 15% 15%, rgba(0, 255, 200, 0.12) 0%, transparent 40%),
-            radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
-            radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.2) 0%, transparent 70%);
+            radial-gradient(circle at 50% 50%, rgba(0, 255, 200, 0.1) 0%, transparent 60%),
+            radial-gradient(circle at 20% 80%, rgba(0, 255, 200, 0.05) 0%, transparent 40%);
         z-index: -2;
-        animation: cosmic-pulse 8s ease-in-out infinite alternate;
+        animation: nebula-float 10s ease-in-out infinite alternate;
     }
+}
+
+.tractor-beam {    // O Círculo de Raio "Tratorado" (360 graus)
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg, rgba(0, 255, 200, 0.08) 0deg 15deg, transparent 16deg 30deg);  // Efeito de fatias de luz do esboço
+    mask-image: radial-gradient(circle, transparent 40%, black 45%, black 55%, transparent 60%);  // Deixa apenas o aro visível
+    z-index: -1;
+    animation: orbit-rotate 40s linear infinite;
+    pointer-events: none;
 }
 
 .cosmic-grid-overlay {
@@ -41,37 +38,9 @@
     background-image:
         linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(circle, black 30%, transparent 80%);
-    pointer-events: none;
+    background-size: 60px 60px;
     z-index: -1;
-}
-
-.cosmic-hud {
-    position: fixed;
-    top: 100px;
-    left: 40px;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.65rem;
-    color: #00ffc8;
-    opacity: 0.5;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    z-index: 10;
-    padding-left: 15px;
-    border-left: 1px solid rgba(0, 255, 200, 0.3);
-
-    span {
-        display: block;
-        margin-bottom: 8px;
-
-        &::before {
-            content: '>> ';
-            opacity: 0.5;
-        }
-
-        animation: glitch-text 4s step-end infinite;
-    }
+    mask-image: radial-gradient(circle, black 40%, transparent 90%);
 }
 
 @keyframes orbit-rotate {
@@ -84,32 +53,14 @@
     }
 }
 
-@keyframes cosmic-pulse {
+@keyframes nebula-float {
     from {
-        opacity: 0.6;
+        opacity: 0.5;
         transform: scale(1);
     }
 
     to {
         opacity: 1;
-        transform: scale(1.05);
-    }
-}
-
-@keyframes glitch-text {
-
-    0%,
-    95% {
-        transform: translate(0);
-        color: #00ffc8;
-    }
-
-    96% {
-        transform: translate(2px, -1px);
-        color: #fff;
-    }
-
-    98% {
-        transform: translate(-1px, 1px);
+        transform: scale(1.1);
     }
 }
