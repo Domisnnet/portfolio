@@ -1,3 +1,10 @@
-<app-header />
-<router-outlet />
-<app-footer />
+<div [ngClass]="{'hidden': !loading}" class="loader-container">
+    <app-loader *ngIf="loading"></app-loader>
+</div>
+<div class="app-content" [ngClass]="{'visible': !loading}">
+    <app-header></app-header>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+</div>
