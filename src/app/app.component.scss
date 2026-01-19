@@ -6,13 +6,9 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-
   opacity: 1;
   visibility: visible;
-
-  transition:
-    opacity 0.8s ease,
-    visibility 0.8s ease;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .loader-overlay.hidden {
@@ -29,4 +25,8 @@
 .app-content.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+main {
+  padding-top: 60px; 
 }
