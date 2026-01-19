@@ -1,44 +1,27 @@
 :host {
   display: block;
   width: 240px;
-  --enter-delay: calc(var(--index, 0) * 120ms);
-  animation: 
-    artifact-enter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both,
-    zeroGravity 12s ease-in-out infinite alternate;
-  animation-delay: var(--enter-delay), calc(var(--enter-delay) + 0.8s);
+  animation: zeroGravity 12s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 10;
 }
 
 .artifact-card {
   width: 100%;
-  height: 345px;
+  height: 380px; 
   position: relative;
   perspective: 1200px;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    border-radius: 30px;
-    opacity: 0;
-    filter: blur(40px);
-    transition: opacity 0.5s ease;
-    z-index: -1;
-  }
+  &:hover { 
+    transform: scale(1.05); 
+    transition: transform 0.3s ease; 
 
-  &:hover {
-    transform: scale(1.08) !important;
-    z-index: 20;
-
-    &::before { opacity: 0.8; }
-    .alien-scan-marker { opacity: 1; transform: scale(1); }
+    .alien-scan-marker {
+      opacity: 1 !important;
+      transform: scale(1.2);
+    }
   }
 }
-
-/* CORES DE ENERGIA ALIEN */
-.artifact-card[data-categories~='frontend']::before { background: radial-gradient(circle, #61dafb, transparent 70%); }
-.artifact-card[data-categories~='backend']::before { background: radial-gradient(circle, #4ade80, transparent 70%); }
-.artifact-card[data-categories~='devops']::before { background: radial-gradient(circle, #38bdf8, transparent 70%); }
 
 .artifact-inner {
   width: 100%;
@@ -50,79 +33,133 @@
 
 .artifact-card.is-flipped .artifact-inner { transform: rotateY(180deg); }
 
+/* ==================
+  Frente do Card
+================== */  
 .artifact-face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 4px;
+  overflow: hidden; 
 }
 
 .artifact-front {
-  background: #fff;
-  padding: 10px 10px 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.artifact-photo {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  position: relative;
-  overflow: hidden;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-}
-
-.artifact-card:hover img { transform: scale(1.15); }
-
-.alien-scan-marker {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  color: #00ffc8;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: 0.4s;
-  filter: drop-shadow(0 0 8px #00ffc8);
-}
-
-.artifact-back {
-  background: rgba(10, 15, 28, 0.9);
-  transform: rotateY(180deg);
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(0, 255, 200, 0.2);
-  backdrop-filter: blur(15px);
-}
+  position: relative;
+  background: #ffffff;
+  padding: 7px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 
-.artifact-button {
-  padding: 10px 25px;
-  color: #00ffc8;
-  border: 1px solid #00ffc8;
-  border-radius: 50px;
-  text-decoration: none;
-  background: rgba(0, 255, 200, 0.05);
-  transition: 0.3s;
+  .artifact-photo {
+    width: 100%;
+    height: 280px; 
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
 
-  &:hover {
-    background: rgba(0, 255, 200, 0.2);
-    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+    img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+      transition: transform 0.6s ease; 
+    }
+
+    .alien-scan-marker {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: #00ffc8;
+      width: 24px;
+      height: 24px;
+      filter: drop-shadow(0 0 5px #00ffc8);
+      opacity: 0; 
+      transition: all 0.4s ease;
+      transform: scale(0.8);
+      z-index: 2;
+    }
+  }
+
+  .handwritten-label {
+    margin-top: auto; 
+    padding-bottom: 5px;
+    font-family: var(--font-title), cursive;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    text-align: center;
+    transform: rotate(-2deg);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
-@keyframes artifact-enter {
-  from { opacity: 0; transform: translateY(60px) scale(0.8); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+.artifact-card:hover img { transform: scale(1.1); }
+
+/* ==================
+  Verso do Card
+================== */  
+.artifact-back {
+  background: #0a0f1c; 
+  transform: rotateY(180deg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 255, 200, 0.4);
+  box-shadow: inset 0 0 20px rgba(0, 255, 200, 0.1);
+
+  .artifact-header {
+    margin-bottom: 15px;
+    h3 { color: #fff; font-size: 1.1rem; margin: 0 0 8px; }
+    p { 
+      color: rgba(255, 255, 255, 0.7); 
+      font-size: 0.8rem; 
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3; 
+      line-clamp: 3; 
+      overflow: hidden;
+    }
+  }
+
+  .artifact-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex-grow: 1;
+    align-content: flex-start;
+    overflow-y: auto; 
+  }
+
+  .artifact-action {
+    margin-top: auto;
+    padding-top: 15px;
+    .artifact-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      color: #00ffc8;
+      border: 1px solid #00ffc8;
+      border-radius: 20px;
+      text-decoration: none;
+      background: rgba(0, 255, 200, 0.05);
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      &:hover { background: rgba(0, 255, 200, 0.2); box-shadow: 0 0 15px rgba(0, 255, 200, 0.3); }
+    }
+  }
 }
 
+/* ===============
+  Animação
+=============== */  
 @keyframes zeroGravity {
-  0%, 100% { transform: translateY(0) rotate(var(--rotation)); }
-  50% { transform: translateY(-15px) rotate(calc(var(--rotation) + 2deg)); }
+  0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+  50% { transform: translateY(-10px) rotate(calc(var(--rotation, 0deg) + 1deg)); }
 }
