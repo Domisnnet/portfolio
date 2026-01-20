@@ -15,16 +15,6 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  overflow-x: auto;
-}
-
-.footer-grid-original {
-  display: flex;
-  justify-content: center; 
-  align-items: flex-start; 
-  gap: 6rem;             
-  margin-bottom: 3rem;
-  flex-wrap: nowrap; 
 }
 
 .footer-column h4 {
@@ -35,14 +25,26 @@
   margin-bottom: 1.5rem;
 }
 
-.footer-list {
+.footer-list, .tech-icons-original {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  gap: 1rem;
 }
 
-.footer-list li {
-  margin-bottom: 0.8rem;
+.footer-list {
+  flex-direction: column;
+}
+
+.tech-icons-original img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s;
+}
+
+.tech-icons-original img:hover {
+  transform: scale(1.1);
 }
 
 .footer-list a {
@@ -56,49 +58,78 @@
   color: var(--footer-link-hover);
 }
 
-.tech-icons-original {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.tech-icons-original img {
-  width: 50px;
-  height: 50px;
-  transition: transform 0.3s;
-}
-
-.tech-icons-original img:hover {
-  transform: scale(1.1);
-}
-
 .footer-bottom {
   border-top: 1px solid var(--border-color);
   padding-top: 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   color: var(--footer-text-muted);
   font-size: 0.85rem;
+  gap: 1rem;
 }
 
-.bottom-links a {
-  color: var(--footer-text-muted);
-  text-decoration: none;
-  transition: color 0.3s;
+
+/* --- LAYOUTS --- */
+
+/* Layout Padrão para Mobile e Tablet */
+.footer-grid-original {
+  display: grid;
+  /* Cria 3 colunas para os links ficarem juntos */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+  /* Define as áreas do grid */
+  grid-template-areas:
+    "links1 links2 links3"
+    "tech   tech   tech"
+    "cont   cont   cont";
 }
 
-.bottom-links a:hover {
-  color: white;
+/* Alinhamento geral para mobile/tablet */
+.footer-column {
+  text-align: center;
 }
 
-@media (max-width: 768px) {
+.tech-icons-original {
+  justify-content: center;
+}
+
+/* Associa cada coluna a uma área do grid */
+.footer-column:nth-child(1) { grid-area: links1; }
+.footer-column:nth-child(2) { grid-area: links2; }
+.footer-column:nth-child(3) { grid-area: links3; }
+.footer-column:nth-child(4) { grid-area: tech; }
+.footer-column:nth-child(5) { grid-area: cont; }
+
+.footer-bottom {
+  flex-direction: column-reverse;
+  text-align: center;
+}
+
+/* Breakpoint para Desktop (Layout 5 colunas) */
+@media (min-width: 1200px) {
   .footer-grid-original {
-    gap: 2rem; 
+    /* Limpa as áreas e define 5 colunas */
+    grid-template-areas: none;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+    text-align: left;
   }
+
+  /* Restaura o alinhamento para desktop */
+  .footer-column {
+    text-align: left;
+  }
+
+  .tech-icons-original {
+    justify-content: flex-start;
+  }
+
   .footer-bottom {
-    flex-direction: column-reverse; 
-    gap: 1rem;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
 }
