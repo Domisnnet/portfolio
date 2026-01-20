@@ -6,7 +6,7 @@
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0.8rem 0;
-  background: var(--bg-color);
+  background: var(--bg-color-rgb);
 
   .nav-container {
     max-width: 1200px;
@@ -32,14 +32,16 @@
   }
 
   .logo-dot {
-    background: var(--accent-color);
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
     border-radius: 50%;
     position: relative;
 
     &::after {
       content: '';
       position: absolute;
-      inset: -8px;
+      inset: -4px;
       border: 2px solid var(--accent-color);
       border-radius: 50%;
       animation: pulse 2s infinite;
@@ -53,7 +55,7 @@
   gap: 32px;
   list-style: none;
 
-  a {
+  a:not(.btn-contact) {
     text-decoration: none;
     color: var(--text-color);
     font-size: 0.85rem;
@@ -66,8 +68,7 @@
     &:hover,
     &.active {
       opacity: 1;
-      border-color: var(--accent-color);
-      background: rgba(255, 255, 255, 0.1);
+      color: var(--accent-color);
     }
   }
 }
@@ -78,7 +79,6 @@
   gap: 10px;
 }
 
-// Estilo base para os botões de ação do header
 %action-button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -97,14 +97,31 @@
   }
 
   &:hover {
-    border-color: var(--accent-color);
-    background: rgba(var(--accent-color-rgb), 0.1);
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.1);
   }
 }
 
 .hamburger-menu {
   @extend %action-button;
-  display: none; 
+  display: none;
+}
+
+.btn-contact {
+  background: var(--accent-color);
+  color: #000;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.3s;
+  text-transform: uppercase;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.3);
+  }
 }
 
 @media (max-width: 768px) {
@@ -117,9 +134,10 @@
     left: 0;
     width: 100%;
     background: var(--bg-color);
-    padding: 20px;
+    padding: 20px 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     gap: 20px;
+    align-items: flex-start; 
 
     &.open {
       display: flex;
@@ -139,28 +157,11 @@
   }
 
   .hamburger-menu {
-    display: grid; 
+    display: grid;
   }
 
   .btn-contact {
     display: none;
-  }
-}
-
-.btn-contact {
-  @extend %action-button;
-  background: var(--accent-color);
-  color: #000;
-  text-decoration: none;
-  padding: 0 25px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  width: auto;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.3);
   }
 }
 
