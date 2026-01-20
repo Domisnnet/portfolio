@@ -15,15 +15,16 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  overflow-x: auto;
 }
 
 .footer-grid-original {
   display: flex;
   justify-content: center; 
   align-items: flex-start; 
-  gap: 8rem;               
+  gap: 6rem;             
   margin-bottom: 3rem;
-  flex-wrap: wrap;         
+  flex-wrap: nowrap; 
 }
 
 .footer-column h4 {
@@ -93,7 +94,7 @@
 
 @media (max-width: 768px) {
   .footer-grid-original {
-    gap: 3rem; 
+    gap: 2rem; 
   }
   .footer-bottom {
     flex-direction: column-reverse; 
