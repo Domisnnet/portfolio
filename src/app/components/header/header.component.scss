@@ -34,7 +34,7 @@
   .logo-dot {
     width: 8px;
     height: 8px;
-    background: var(--accent);
+    background: var(--accent-color);
     border-radius: 50%;
     position: relative;
 
@@ -97,8 +97,8 @@
   }
 
   &:hover {
-    border-color: var(--accent);
-    background: rgba(var(--accent-rgb), 0.1);
+    border-color: var(--accent-color);
+    background: rgba(var(--accent-color-rgb), 0.1);
   }
 }
 
