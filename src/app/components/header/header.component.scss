@@ -39,7 +39,7 @@
     &::after {
       content: '';
       position: absolute;
-      inset: -4px;
+      inset: -10px;
       border: 2px solid var(--accent-color);
       border-radius: 50%;
       animation: pulse 2s infinite;
