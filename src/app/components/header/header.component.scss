@@ -6,7 +6,7 @@
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0.8rem 0;
-  background: var(--background-color);
+  background: var(--bg-color);
 
   .nav-container {
     max-width: 1200px;
@@ -49,6 +49,7 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 32px;
   list-style: none;
 
@@ -115,7 +116,7 @@
     top: 82px;
     left: 0;
     width: 100%;
-    background: var(--background-color);
+    background: var(--bg-color);
     padding: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     gap: 20px;
