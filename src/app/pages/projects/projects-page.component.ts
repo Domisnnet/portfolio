@@ -70,7 +70,7 @@ export class ProjectsPageComponent {
       link: 'https://github.com/Domisnnet/Projeto-Alura',
     },
     {
-      title: 'Interactive Portfolio',
+      title: 'Portfolio',
       description: 'Portfólio animado com narrativa visual.',
       image: 'assets/images/portfolio.png',
       tags: ['angular', 'scss', 'motions', 'design'],
