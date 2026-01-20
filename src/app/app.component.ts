@@ -1,32 +1,21 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './core/services/loader.service';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    LoaderComponent
-  ],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, LoaderComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  loading$;
+  loading = this.loader.loading$;
 
-  constructor(private loader: LoaderService) {
-    this.loading$ = this.loader.loading$;
-    this.loader.show();  // mostra o loader no início
-    setTimeout(() => {  // esconde após render inicial
-      this.loader.hide();
-    }, 1200);
-  }
+  constructor(private loader: LoaderService) {}
 }
