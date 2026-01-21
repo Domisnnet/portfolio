@@ -1,0 +1,9 @@
+<div class="grid-container">
+  @for (project of projects; track project.title) {
+    <app-project-lab-card 
+      [image]="project.image" 
+      [title]="project.title" 
+      [description]="project.description" 
+    />
+  }
+</div>
