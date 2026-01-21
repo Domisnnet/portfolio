@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { ProjectLabCardComponent } from '../components/project-lab-card/project-lab-card.component';
 
 @Component({
@@ -13,6 +12,10 @@ export class ProjectsLabPage {
     {
       title: 'Projeto LAB 01',
       image: 'https://picsum.photos/400/300?random=1'
+    },
+    {
+      title: 'Projeto LAB 02',
+      image: 'https://picsum.photos/400/300?random=2'
     }
   ];
 }

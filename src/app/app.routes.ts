@@ -1,8 +1,9 @@
-import { ProjectsLabPage } from './projects-lab/pages/projects-lab.page';
+import { Routes } from '@angular/router';
+import { ProjectsLabPage } from './pages/projetos-lab/pages/projects-lab.page';
 
-export const routes = [
+export const routes: Routes = [
   {
     path: 'lab',
-    component: ProjectsLabPage
+    loadComponent: () => import('./pages/projetos-lab/pages/projects-lab.page').then(m => m.ProjectsLabPage)
   }
 ];
