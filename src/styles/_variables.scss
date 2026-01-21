@@ -108,44 +108,33 @@ Root — Dark Theme
   --pill-cms-text: #f472b6;
   --pill-cms-bg: rgba(244, 114, 182, 0.1);
   --pill-cms-border: rgba(244, 114, 182, 0.2);
-}
 
-/* =====================================================
-Light Theme — Overrides Only
-===================================================== */
-.light-theme {
-  /* =====================
-  Text
-  ===================== */
+
+  /* =====================================================
+    Light Theme — Overrides Only
+  ===================================================== */
+  /* Text */
   --color-text-primary: #1f2937;
   --color-text-secondary: #6b7280;
   --color-text-muted: #9ca3af;
   --color-text-inverse: #ffffff;
 
-  /* =====================
-  Background
-  ===================== */
+  /* Background */
   --color-bg-body: #ffffff;
   --color-bg-surface: #f3f4f6;
   --color-bg-surface-alt: #e5e7eb;
   --color-bg-header: rgba(255, 255, 255, 0.8);
   --color-bg-overlay: rgba(0, 0, 0, 0.4);
 
-  /* =====================
-  Border
-  ===================== */
+  /* Border */
   --color-border-default: #e5e7eb;
   --color-border-muted: #d1d5db;
 
-  /* =====================
-  Icons
-  ===================== */
+  /* Icons */
   --color-icon-default: #6b7280;
   --color-icon-hover: #111827;
 
-  /* =====================
-  RGB Helpers
-  ===================== */
+  /* RGB Helpers */
   --color-bg-body-rgb: 255, 255, 255;
 
   /* =====================================================
@@ -185,4 +174,20 @@ Light Theme — Overrides Only
   --pill-cms-text: #be185d;
   --pill-cms-bg: rgba(236, 72, 153, 0.1);
   --pill-cms-border: rgba(236, 72, 153, 0.2);
+
+  /* =================================
+    Cosmic / Environment Tokens
+  ================================= */
+  --cosmic-bg: #020205;
+
+  --cosmic-accent: var(--artifact-accent);
+  --cosmic-accent-rgb: var(--artifact-accent-rgb);
+
+  --cosmic-grid-opacity: 0.04;
+  --cosmic-stars-opacity: 0.5;
+
+  --cosmic-hud-text: rgba(0, 255, 200, 0.85);
+  --cosmic-hud-glow: rgba(0, 255, 200, 0.6);
+
+  --cosmic-font: var(--font-code);
 }
