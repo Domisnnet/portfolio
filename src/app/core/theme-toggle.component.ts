@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
-import { ThemeService } from './theme.service';
+import { ThemeService } from '../core/services/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -8,10 +8,11 @@ import { ThemeService } from './theme.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ThemeToggleComponent {
-  protected themeService = inject(ThemeService);
-  protected isDark = computed(() => this.themeService.theme() === 'dark');
+  private themeService = inject(ThemeService);
 
-  protected toggle(): void {
+  readonly isDark = computed(() => this.themeService.isDark());
+
+  toggle(): void {
     this.themeService.toggleTheme();
   }
 }
