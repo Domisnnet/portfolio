@@ -1,23 +1,15 @@
-<section class="projects-page">
-  <header class="projects-header">
-    <div class="header-content">
-      <h1>Meus Trabalhos</h1>
-      <p>Artefatos tecnológicos recuperados.</p>
-    </div>
-    <div class="alien-scan-marker">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <circle cx="12" cy="12" r="3"></circle>
-        <path d="M3 12h1m16 0h1M12 3v1m0 16v1"></path>
-        <path d="M12 8v0m0 8v0m-4-4v0m8 0v0"></path>
-      </svg>
-    </div>
+<section class="projects-container cosmic-section">
+  <div class="stars-overlay"></div>
+  <div class="cosmic-grid-overlay"></div>
+  <div class="tractor-beam"></div>
+  <div class="scanning-artifact">
+    <span class="status-line">SCANNING_ARTIFACTS...</span>
+    <span class="status-line">ENERGY_LEVEL: 98%</span>
+    <span class="status-line">TARGET_LOCKED</span>
+  </div>
+  <header class="page-header">
+    <h1>Meus Trabalhos</h1>
+    <p>Artefatos tecnológicos recuperados.</p>
   </header>
   <div class="projects-grid">
     <ng-container *ngFor="let project of projects(); let i = index">
