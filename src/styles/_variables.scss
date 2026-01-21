@@ -1,7 +1,8 @@
 /* ====================
-Root — Dark Theme
+Root — Dark Theme (default)
 ==================== */
 :root {
+
   /* =====================
   Typography
   ===================== */
@@ -17,7 +18,6 @@ Root — Dark Theme
   --color-brand-secondary: #4338ca;
   --color-brand-accent: #06b6d4;
 
-  /* Aliases semânticos (uso em componentes) */
   --color-primary: var(--color-brand-primary);
   --color-secondary: var(--color-brand-secondary);
   --color-accent: var(--color-brand-accent);
@@ -50,29 +50,14 @@ Root — Dark Theme
   --color-border-accent: var(--color-accent);
 
   /* =====================
-  Icons
+  RGB Helpers
   ===================== */
-  --color-icon-default: #9ca3af;
-  --color-icon-muted: #6b7280;
-  --color-icon-hover: #f9fafb;
-
-  /* =====================
-  States & Status
-  ===================== */
-  --color-state-success: #4ade80;
-  --color-state-warning: #f59e0b;
-  --color-state-error: #fb7185;
-  --color-state-info: #38bdf8;
-
-  /* =================================
-  RGB Helpers - effects, shadows
-  ================================= */
   --color-accent-rgb: 6, 182, 212;
   --color-bg-body-rgb: 17, 24, 39;
 
-  /* =====================================================
-    Component Tokens — Artifact Card-Dark
-  ===================================================== */
+  /* =====================
+  Artifact Card — Dark
+  ===================== */
   --artifact-bg-front: #ffffff;
   --artifact-bg-back: #0a0f1c;
 
@@ -86,98 +71,9 @@ Root — Dark Theme
   --artifact-border: rgba(0, 255, 200, 0.4);
   --artifact-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
-  /* =====================================
-  Component Tokens — Stack Pills Dark
-  ===================================== */
-  --pill-frontend-text: #38bdf8;
-  --pill-frontend-bg: rgba(56, 189, 248, 0.1);
-  --pill-frontend-border: rgba(56, 189, 248, 0.2);
-
-  --pill-backend-text: #4ade80;
-  --pill-backend-bg: rgba(74, 222, 128, 0.1);
-  --pill-backend-border: rgba(74, 222, 128, 0.2);
-
-  --pill-database-text: #f59e0b;
-  --pill-database-bg: rgba(245, 158, 11, 0.1);
-  --pill-database-border: rgba(245, 158, 11, 0.2);
-
-  --pill-devops-text: #fb7185;
-  --pill-devops-bg: rgba(251, 113, 133, 0.1);
-  --pill-devops-border: rgba(251, 113, 133, 0.2);
-
-  --pill-cms-text: #f472b6;
-  --pill-cms-bg: rgba(244, 114, 182, 0.1);
-  --pill-cms-border: rgba(244, 114, 182, 0.2);
-
-
-  /* =====================================================
-    Light Theme — Overrides Only
-  ===================================================== */
-  /* Text */
-  --color-text-primary: #1f2937;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
-  --color-text-inverse: #ffffff;
-
-  /* Background */
-  --color-bg-body: #ffffff;
-  --color-bg-surface: #f3f4f6;
-  --color-bg-surface-alt: #e5e7eb;
-  --color-bg-header: rgba(255, 255, 255, 0.8);
-  --color-bg-overlay: rgba(0, 0, 0, 0.4);
-
-  /* Border */
-  --color-border-default: #e5e7eb;
-  --color-border-muted: #d1d5db;
-
-  /* Icons */
-  --color-icon-default: #6b7280;
-  --color-icon-hover: #111827;
-
-  /* RGB Helpers */
-  --color-bg-body-rgb: 255, 255, 255;
-
-  /* =====================================================
-    Component Tokens — Artifact Card-Light
-  ===================================================== */
-  /* background */
-  --artifact-bg-front: #ffffff;
-  --artifact-bg-back: #f3f4f6;
-
-  /* text */
-  --artifact-text-front: #1f2937;
-  --artifact-text-back: #111827;
-  --artifact-text-muted: rgba(0, 0, 0, 0.6);
-
-  /* border */
-  --artifact-border: rgba(0, 0, 0, 0.1);
-
-  /* ======================================
-  Component Tokens — Stack Pills Light
-  ====================================== */
-  --pill-frontend-text: #2563eb;
-  --pill-frontend-bg: rgba(37, 99, 235, 0.1);
-  --pill-frontend-border: rgba(37, 99, 235, 0.2);
-
-  --pill-backend-text: #16a34a;
-  --pill-backend-bg: rgba(22, 163, 74, 0.1);
-  --pill-backend-border: rgba(22, 163, 74, 0.2);
-
-  --pill-database-text: #d97706;
-  --pill-database-bg: rgba(217, 119, 6, 0.1);
-  --pill-database-border: rgba(217, 119, 6, 0.2);
-
-  --pill-devops-text: #be123c;
-  --pill-devops-bg: rgba(190, 18, 60, 0.1);
-  --pill-devops-border: rgba(190, 18, 60, 0.2);
-
-  --pill-cms-text: #be185d;
-  --pill-cms-bg: rgba(236, 72, 153, 0.1);
-  --pill-cms-border: rgba(236, 72, 153, 0.2);
-
-  /* =================================
-    Cosmic / Environment Tokens
-  ================================= */
+  /* =====================
+  Cosmic / Environment
+  ===================== */
   --cosmic-bg: #020205;
 
   --cosmic-accent: var(--artifact-accent);
@@ -190,4 +86,34 @@ Root — Dark Theme
   --cosmic-hud-glow: rgba(0, 255, 200, 0.6);
 
   --cosmic-font: var(--font-code);
+}
+
+/* =====================================================
+Light Theme — Overrides Only
+===================================================== */
+.light-theme {
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-inverse: #ffffff;
+
+  --color-bg-body: #ffffff;
+  --color-bg-surface: #f3f4f6;
+  --color-bg-surface-alt: #e5e7eb;
+  --color-bg-header: rgba(255, 255, 255, 0.8);
+  --color-bg-overlay: rgba(0, 0, 0, 0.4);
+
+  --color-border-default: #e5e7eb;
+  --color-border-muted: #d1d5db;
+
+  --color-bg-body-rgb: 255, 255, 255;
+
+  --artifact-bg-front: #ffffff;
+  --artifact-bg-back: #f3f4f6;
+
+  --artifact-text-front: #1f2937;
+  --artifact-text-back: #111827;
+  --artifact-text-muted: rgba(0, 0, 0, 0.6);
+
+  --artifact-border: rgba(0, 0, 0, 0.1);
 }
